@@ -11,15 +11,14 @@ public class Agenda {
         this.listaContatos[posicao - 1] = new Contato(nome, sobrenome, numero);
     }
 
-    public String listarContatos() {
+    public void listarContatos() {
         String stringSaida = "";
 
         for (int i = 0; i < listaContatos.length; i++) {
             if (this.listaContatos[i] != null) {
-                stringSaida += i + " - " + this.listaContatos[i].toString() + "\n";
+                System.out.println(i + " - " + this.listaContatos[i].toString());
             }
         }
-        return stringSaida;
     }
 
     public String exibirContato(int posicao) {
@@ -29,4 +28,5 @@ public class Agenda {
             return "POSIÇÃO INVÁLIDA.";
         }
     }
+
 }
