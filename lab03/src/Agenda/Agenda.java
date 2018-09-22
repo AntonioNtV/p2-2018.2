@@ -11,20 +11,23 @@ public class Agenda {
         this.listaContatos[posicao - 1] = new Contato(nome, sobrenome, numero);
     }
 
-    public void listarContatos() {
+    public String listarContatos() {
         String stringSaida = "";
 
         for (int i = 0; i < listaContatos.length; i++) {
             if (this.listaContatos[i] != null) {
-                System.out.println((i + 1) + " - " + this.listaContatos[i].toString());
+                stringSaida += (i + 1) + " - " + this.listaContatos[i].toString() + "\n";
             }
         }
+        return stringSaida;
     }
 
-    public void exibirContato(int posicao) {
+    public String exibirContato(int posicao) {
+        String saida = "";
         if (this.listaContatos[posicao - 1] != null) {
-            System.out.println("\n" + this.listaContatos[posicao -1].toString() + " - " + this.listaContatos[posicao - 1].getNumero());
+           saida = "\n" + this.listaContatos[posicao -1].toString() + " - " + this.listaContatos[posicao - 1].getNumero() + "\n";
         }
+        return saida;
     }
 
 }
