@@ -9,7 +9,7 @@ public class Main {
         Agenda agenda = new Agenda();
 
         do {
-            System.out.println("\n(C)adastrar Contato");
+            System.out.println("(C)adastrar Contato");
             System.out.println("(L)istar Contatos");
             System.out.println("(E)xibir Contato");
             System.out.println("(S)air");
@@ -36,19 +36,19 @@ public class Main {
                     String numero = sc.nextLine();
 
                     agenda.cadastraContato(nome,sobrenome,numero,Integer.parseInt(posicao));
-                    System.out.println("CADASTRO REALIZADO");
+                    System.out.println("CADASTRO REALIZADO\n");
                     break;
 
                 case "L":
                     System.out.println();
-                    agenda.listarContatos();
+                    System.out.println(agenda.listarContatos());
                     break;
 
                 case "E":
                     System.out.print("Contato> ");
                     String posicaoBusca = sc.nextLine();
 
-                    agenda.exibirContato(Integer.parseInt(posicaoBusca));
+                    System.out.println(agenda.exibirContato(Integer.parseInt(posicaoBusca)));
                     break;
 
                 default:
