@@ -16,16 +16,14 @@ public class Agenda {
 
         for (int i = 0; i < listaContatos.length; i++) {
             if (this.listaContatos[i] != null) {
-                System.out.println(i + " - " + this.listaContatos[i].toString());
+                System.out.println((i + 1) + " - " + this.listaContatos[i].toString());
             }
         }
     }
 
-    public String exibirContato(int posicao) {
+    public void exibirContato(int posicao) {
         if (this.listaContatos[posicao - 1] != null) {
-            return this.listaContatos[posicao -1].toString() + " - " + this.listaContatos[posicao - 1].getNumero();
-        } else {
-            return "POSIÇÃO INVÁLIDA.";
+            System.out.println("\n" + this.listaContatos[posicao -1].toString() + " - " + this.listaContatos[posicao - 1].getNumero());
         }
     }
 
