@@ -11,15 +11,6 @@ public class Contato {
         this.numero = numero;
     }
 
-
-    public String getNome() {
-        return this.nome;
-    }
-
-    public String getSobrenome() {;
-        return this.sobrenome;
-    }
-
     public String getNumero() {
         return this.numero;
     }
