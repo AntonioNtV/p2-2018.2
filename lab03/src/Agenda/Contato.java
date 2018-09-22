@@ -9,10 +9,17 @@ public class Contato {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.numero = numero;
-    }
+        
 
     public String getNumero() {
         return this.numero;
+    }
+
+    public boolean equals(Contato contato) {
+        if (this.nome.equals(contato.getNome()) && this.sobrenome.equals(contato.getSobrenome())) {
+            return true;
+        }
+        return false;
     }
 
     @Override
