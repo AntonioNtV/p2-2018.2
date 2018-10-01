@@ -60,7 +60,7 @@ class CardapioVirtualTest {
         String[] refeicoes2 = {"arroz preto", "feijoada", "vinagrete"};
 
         assertEquals(500,this.cardapioTest.calcularCaloriasRefeicao(refeicoes,"grande"));
-    }
+        assertThrows(IllegalArgumentException.class, () -> { this.cardapioTest.calcularCaloriasRefeicao(refeicoes2, "grande");}); }
 
     @Test
     void testListaCardapio() {
