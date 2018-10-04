@@ -8,6 +8,10 @@ public class Aluno {
     private String curso;
 
     public Aluno(String matricula, String nome, String curso) {
+        if (matricula == null || nome == null || curso == null || matricula.equals("") || nome.equals("") || curso.equals("")) {
+            throw new IllegalArgumentException("");
+        }
+
         this.matricula = matricula;
         this.nome = nome;
         this.curso = curso;

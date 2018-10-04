@@ -10,11 +10,19 @@ public class Grupo {
     HashSet<Aluno> alunos;
 
     public Grupo(String tema) {
+        if (tema == null || tema.equals("")) {
+            throw  new IllegalArgumentException("");
+        }
+
         this.tema = tema;
         this.alunos = new HashSet<>();
     }
 
     public String alocaAluno(Aluno aluno) {
+        if (aluno == null) {
+            throw new IllegalArgumentException("");
+        }
+
         this.alunos.add(aluno);
         return "ALUNO ALOCADO!";
     }

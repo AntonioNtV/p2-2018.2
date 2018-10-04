@@ -17,15 +17,23 @@ public class Controlador {
     }
 
     public String cadastraAluno(String matricula, String nome, String curso) {
+        if (matricula == null || nome == null || curso == null || matricula .equals("") || nome.equals("") || curso.equals("")) {
+            throw new IllegalArgumentException("");
+        }
+
         if (!this.alunos.containsKey(matricula)) {
             Aluno cadastra = this.alunos.put(matricula, new Aluno(matricula, nome, curso));
-            return "CADASTRO REALIZADO";
+            return "CADASTRO REALIZADO!";
         } else {
             return "MATRÍCULA JÁ CADASTRADA!";
         }
     }
 
     public String consultaAlunos(String matricula) {
+        if (matricula == null || matricula.equals("")) {
+            throw new IllegalArgumentException("");
+        }
+
         if (this.alunos.containsKey(matricula)) {
             return this.alunos.get(matricula).toString();
         } else {
@@ -34,6 +42,10 @@ public class Controlador {
     }
 
     public String cadastraGrupo(String tema) {
+        if (tema == null || tema.equals("")) {
+            throw new IllegalArgumentException("");
+        }
+
         if (!this.grupos.containsKey(tema.toUpperCase())) {
             Grupo cadastra = this.grupos.put(tema.toUpperCase(), new Grupo(tema));
             return "CADASTRO REALIZADO!";
@@ -43,6 +55,10 @@ public class Controlador {
     }
 
     public String alocarAluno (String grupo, String matricula) {
+        if (grupo == null || matricula == null || grupo.equals("") || matricula.equals("")) {
+            throw new IllegalArgumentException("");
+        }
+
         if (!this.grupos.containsKey(grupo.toUpperCase()) && !this.alunos.containsKey(matricula)) {
             return "Grupo não cadastrado!" + Util.pulaLinha() + "Aluno não cadastrado!";
 
@@ -58,7 +74,11 @@ public class Controlador {
     }
 
     public String imprimeGrupo (String grupo) {
-        String alunosGrupo = "";
+        if (grupo == null || grupo.equals("")) {
+            throw new IllegalArgumentException("");
+        }
+
+        String alunosGrupo = Util.pulaLinha() + "";
         if (this.grupos.containsKey(grupo.toUpperCase())) {
             alunosGrupo += "Alunos do grupo " + this.grupos.get(grupo.toUpperCase()).getTema() + ":" + Util.pulaLinha() + this.grupos.get(grupo.toUpperCase()).imprimeAlunos();
         } else {
@@ -68,6 +88,10 @@ public class Controlador {
     }
 
     public String cadastraAlunoQuestao(String matricula) {
+        if (matricula == null || matricula.equals("")) {
+            throw new IllegalArgumentException("");
+        }
+
         if (this.alunos.containsKey(matricula)) {
             this.alunosQuestoes.add(this.alunos.get(matricula));
             return "ALUNO REGISTRADO!";
