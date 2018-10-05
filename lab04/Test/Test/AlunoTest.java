@@ -6,14 +6,24 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Classe de teste da classe Aluno
+ * @author Antonio Bertino de Vasconcelos Cabral Neto - UFCG - 2018 ©s
+ */
 class AlunoTest {
     private Aluno alunoTest;
 
+    /**
+     * Adição de um BeforeEach para iniciar um objeto aluno
+     */
     @BeforeEach
     void AlunoTest(){
         this.alunoTest = new Aluno("123","Neto", "Ciência da Computação");
     }
 
+    /**
+     * Teste do método equals
+     */
     @Test
     void equals() {
         Aluno aluno2 = new Aluno("123","Neto 2", "Ciência da Amputação");
@@ -24,6 +34,9 @@ class AlunoTest {
     }
 
 
+    /**
+     * Teste do método hashCode
+     */
     @Test
     void hashCodeTest() {
         Aluno aluno2 = new Aluno("123","Neto 2", "Ciência da Amputação");
@@ -34,6 +47,9 @@ class AlunoTest {
 
     }
 
+    /**
+     * Teste do método toString
+     */
     @Test
     void toStringTest() {
         assertEquals("123 - Neto - Ciência da Computação",this.alunoTest.toString());

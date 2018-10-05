@@ -3,7 +3,14 @@ package main;
 import controleAlunos.Controlador;
 import util.Util;
 
+/**
+ * Criado apenas para exibir o menu de interação com o usuário
+ * @author Antonio Bertino de Vasconcelos Cabral Neto - UFCG - 2018 ©
+ */
 public class MenuInteracao {
+    /**
+     * Exibição do menu de iteração
+     */
     public static void exibirMenu() {
         String opcaoMenu = "(C)adastrar Aluno" + Util.pulaLinha()
                 + "(E)xibir aluno" + Util.pulaLinha()
@@ -50,6 +57,9 @@ public class MenuInteracao {
 
     }
 
+    /**
+     * Criado para melhorar a legibilidade do "exibirMenu"
+     */
     private static void cadastraAluno(Controlador controlador) {
         String matricula = Util.input("Matrícula: ");
         String nome = Util.input("Nome: ");
@@ -58,18 +68,27 @@ public class MenuInteracao {
         System.out.println(controlador.cadastraAluno(matricula,nome,curso) + Util.pulaLinha());
     }
 
+    /**
+     * Criado para melhorar a legibilidade do "exibirMenu"
+     */
     private static void exibirAluno(Controlador controlador) {
         String matricula = Util.input("Matrícula: ");
 
         System.out.println(controlador.consultaAlunos(matricula) + Util.pulaLinha());
     }
 
+    /**
+     * Criado para melhorar a legibilidade do "exibirMenu"
+     */
     private static void novoGrupo(Controlador controlador) {
         String grupo = Util.input("Grupo: ");
 
         System.out.println(controlador.cadastraGrupo(grupo) + Util.pulaLinha());
     }
 
+    /**
+     * Criado para melhorar a legibilidade do "exibirMenu"
+     */
     private static void alocarOuImprimir(Controlador controlador) {
         String opcao = Util.input("(A)locar Aluno ou (I)mprimir Grupo? ").toUpperCase();
 
@@ -92,12 +111,18 @@ public class MenuInteracao {
         }
     }
 
+    /**
+     * Criado para melhorar a legibilidade do "exibirMenu"
+     */
     private static void registraAlunoQueResponde(Controlador controlador) {
         String matricula = Util.input("Matrícula: ");
 
         System.out.println(controlador.cadastraAlunoQuestao(matricula) + Util.pulaLinha());
     }
 
+    /**
+     * Criado para melhorar a legibilidade do "exibirMenu"
+     */
     private static void imprimeAlunosQueResponderam(Controlador controlador) {
         System.out.println(controlador.imprimeAlunosQuestoes() + Util.pulaLinha());
     }

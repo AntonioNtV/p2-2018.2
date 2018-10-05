@@ -8,13 +8,23 @@ import util.Util;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ControladorTest {
+    /**
+     * Classe de testes da Classe Controlador.
+     * @author Antonio Bertino de Vasconcelos Cabral Neto - UFCG - 2018 ©
+     */
     private Controlador controlador;
 
+    /**
+     * BeforeEach iniciliaziando um controlador
+     */
     @BeforeEach
     void ConntraladorTest() {
         this.controlador = new Controlador();
     }
 
+    /**
+     * Testes do método cadastraAluno
+     */
     @Test
     void cadastraAluno() {
         assertEquals("CADASTRO REALIZADO!", this.controlador.cadastraAluno("123","Neto","Ciência da Computação"));
@@ -23,6 +33,9 @@ class ControladorTest {
         assertThrows(IllegalArgumentException.class, () -> this.controlador.cadastraAluno("","",""));
     }
 
+    /**
+     * Testes do método consultaAlunos.
+     */
     @Test
     void consultaAlunos() {
         this.controlador.cadastraAluno("123","Neto","Ciência da Computação");
@@ -32,6 +45,9 @@ class ControladorTest {
         assertThrows(IllegalArgumentException.class, () -> this.controlador.consultaAlunos(""));
     }
 
+    /**
+     * Testes do método cadastraGrupo.
+     */
     @Test
     void cadastraGrupo() {
         assertEquals("CADASTRO REALIZADO!",this.controlador.cadastraGrupo("Java"));
@@ -40,6 +56,9 @@ class ControladorTest {
         assertThrows(IllegalArgumentException.class, () -> this.controlador.cadastraGrupo(""));
     }
 
+    /**
+     * Testes do método alocarAluno.
+     */
     @Test
     void alocarAluno() {
         this.controlador.cadastraAluno("123","Neto","Ciência da Computação");
@@ -53,6 +72,9 @@ class ControladorTest {
         assertThrows(IllegalArgumentException.class, () -> this.controlador.alocarAluno("",""));
     }
 
+    /**
+     * Testes do método imprimeGrupo.
+     */
     @Test
     void imprimeGrupo() {
         this.controlador.cadastraAluno("123","Neto","Ciência da Computação");
@@ -74,6 +96,9 @@ class ControladorTest {
         assertThrows(IllegalArgumentException.class, () -> this.controlador.imprimeGrupo(""));
     }
 
+    /**
+     * Testes do método cadastraAlunoQuestao
+     */
     @Test
     void cadastraAlunoQuestao() {
         this.controlador.cadastraAluno("123","Neto","Ciência da Computação");
@@ -85,6 +110,9 @@ class ControladorTest {
 
     }
 
+    /**
+     * Testes do método imprimeAlunosQuestoes.
+     */
     @Test
     void imprimeAlunosQuestoes() {
         assertEquals("Alunos:" + Util.pulaLinha(), this.controlador.imprimeAlunosQuestoes());
