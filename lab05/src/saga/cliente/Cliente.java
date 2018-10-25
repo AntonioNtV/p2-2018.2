@@ -1,8 +1,6 @@
 package saga.cliente;
 
 public interface Cliente {
-    public void editorNome(String nome);
-    public void editorEmail(String email);
-    public void editorlocalizacao(String localic);
+    public void editorCliente(String atributo, String atributoNovo);
     public String toString();
 }

@@ -1,7 +1,5 @@
 package saga.cliente;
 
-import saga.cliente.Cliente;
-
 public abstract class ClienteBase implements Cliente {
     protected String cpf;
     protected String nome;
@@ -17,21 +15,24 @@ public abstract class ClienteBase implements Cliente {
 
     @Override
     public String toString() {
-        return this.nome + " " + this.localizacao + " " + this.email;
+        return this.nome + " - " + this.localizacao + " - " + this.email;
     }
 
     @Override
-    public void editorEmail(String email) {
-        this.email = email;
-    }
+    public void editorCliente(String atributo, String atributoNovo) {
+        switch (atributo) {
+            case "EMAIL":
+                this.email = atributoNovo;
+                break;
 
-    @Override
-    public void editorlocalizacao(String localizacao) {
-        this.localizacao = localizacao;
-    }
+            case "NOME":
+                this.nome = atributoNovo;
+                break;
 
-    @Override
-    public void editorNome(String nome) {
-        this.nome = nome;
+            case "LOCALIZACAO":
+                this.localizacao = localizacao;
+                break;
+
+        }
     }
 }
