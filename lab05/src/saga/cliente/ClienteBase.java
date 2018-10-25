@@ -1,6 +1,8 @@
-package saga;
+package saga.cliente;
 
-public abstract class ClienteBase implements Cliente{
+import saga.cliente.Cliente;
+
+public abstract class ClienteBase implements Cliente {
     protected String cpf;
     protected String nome;
     protected String email;

@@ -1,4 +1,4 @@
-package saga;
+package saga.cliente;
 
 public interface Cliente {
     public void editorNome(String nome);
