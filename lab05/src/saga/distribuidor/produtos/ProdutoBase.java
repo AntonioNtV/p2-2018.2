@@ -7,10 +7,6 @@ public class ProdutoBase extends ProdutoAbstract {
         super(nome, descricao, preco);
     }
 
-    public void editaPreco(double novoPreco) {
-        this.preco = novoPreco;
-    }
-
     @Override
     public String toString() {
         return this.nome + " - " + this.descricao + " - R$" + this.preco;

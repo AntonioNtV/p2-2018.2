@@ -19,6 +19,15 @@ public abstract class FornecedorAbstract implements Fornecedor {
         this.produtos = new HashMap<>();
     }
 
+    @Override
+    public void editaPrecoProduto(String nomeProduto, double preco) {
+        if (this.produtos.containsKey(nomeProduto.toUpperCase())) {
+            this.produtos.get(nomeProduto.toUpperCase()).editaPreco(preco);
+        } else {
+            throw new IllegalArgumentException("");
+        }
+    }
+
     public void editorFornecedor(String atributo, String atributoNovo) {
         switch (atributo) {
             case "EMAIL":

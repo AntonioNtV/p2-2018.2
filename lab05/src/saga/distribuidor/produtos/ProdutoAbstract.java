@@ -14,7 +14,14 @@ public abstract class ProdutoAbstract implements Produto {
         this.preco = preco;
     }
 
-    public abstract void editaPreco(double novoPreco);
+    public void editaPreco(double novoPreco) {
+        this.preco = novoPreco;
+    }
+
+    @Override
+    public String getNome() {
+        return this.nome;
+    }
 
     @Override
     public abstract String toString();

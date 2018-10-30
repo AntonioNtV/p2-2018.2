@@ -1,8 +1,21 @@
 package saga.distribuidor;
 
+import saga.distribuidor.produtos.ComparadorPorNomeProduto;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class FornecedorBase extends FornecedorAbstract {
     public FornecedorBase(String nome, String email, String numero) {
         super(nome, email, numero);
+    }
+
+    @Override
+    public String Listaproduto() {
+        List listaProdutos = new ArrayList(this.produtos.values());
+        Collections.sort(listaProdutos, new ComparadorPorNomeProduto());
+
     }
 
     @Override
