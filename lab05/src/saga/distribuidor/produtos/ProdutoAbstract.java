@@ -1,4 +1,4 @@
-package saga.distri;
+package saga.distribuidor.produtos;
 
 import java.util.Objects;
 

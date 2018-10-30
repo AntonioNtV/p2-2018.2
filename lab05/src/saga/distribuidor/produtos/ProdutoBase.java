@@ -1,4 +1,6 @@
-package saga.distri;
+package saga.distribuidor.produtos;
+
+import saga.distribuidor.produtos.ProdutoAbstract;
 
 public class ProdutoBase extends ProdutoAbstract {
     public ProdutoBase(String nome, String descricao, double preco) {

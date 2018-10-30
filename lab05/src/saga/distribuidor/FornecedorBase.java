@@ -1,4 +1,4 @@
-package saga.distri;
+package saga.distribuidor;
 
 public class FornecedorBase extends FornecedorAbstract {
     public FornecedorBase(String nome, String email, String numero) {

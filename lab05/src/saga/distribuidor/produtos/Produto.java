@@ -1,4 +1,4 @@
-package saga.distri;
+package saga.distribuidor.produtos;
 
 public interface Produto {
     public void editaPreco(double novoPreco);

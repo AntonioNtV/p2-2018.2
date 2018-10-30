@@ -1,4 +1,6 @@
-package saga.distri;
+package saga.distribuidor;
+
+import saga.distribuidor.produtos.ProdutoBase;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package saga.distri;
+package saga.distribuidor;
 
 public interface Fornecedor {
     public void editorFornecedor(String atributo, String atributoNovo);
