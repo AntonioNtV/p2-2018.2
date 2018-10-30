@@ -3,6 +3,7 @@ package saga;
 import saga.cliente.ComparadorPeloNomeDoCliente;
 import saga.cliente.Cliente;
 import saga.cliente.ClienteBase;
+import saga.distribuidor.Fornecedor;
 
 import java.util.*;
 
@@ -33,14 +34,14 @@ public class ClienteController {
     }
 
     public String listaClientes() {
-        String listaSaida = "";
+        String clientes = "";
         List<Cliente> listaClientes = new ArrayList<>(this.clientes.values());
         Collections.sort(listaClientes, new ComparadorPeloNomeDoCliente());
 
         for (Cliente cliente : listaClientes) {
-                listaSaida += cliente.toString() + " | ";
+                clientes += cliente.toString() + " | ";
         }
-        return listaSaida.substring(0, listaSaida.length() -1);
+        return clientes.substring(0, clientes.length() -1);
     }
 
     public void editorCliente(String cpf, String atributo, String atributoNovo) {

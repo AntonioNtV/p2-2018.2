@@ -1,16 +1,16 @@
 package saga.distribuidor;
 
+import saga.distribuidor.produtos.ComparadorPorNomeProduto;
+import saga.distribuidor.produtos.Produto;
 import saga.distribuidor.produtos.ProdutoBase;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public abstract class FornecedorAbstract implements Fornecedor {
     protected String nome;
     protected String email;
     protected String numero;
-    protected Map<String, ProdutoBase> produtos;
+    protected Map<String, Produto> produtos;
 
     public FornecedorAbstract(String nome, String email, String numero) {
         this.nome = nome;
@@ -39,6 +39,22 @@ public abstract class FornecedorAbstract implements Fornecedor {
                 break;
         }
     }
+
+
+    @Override
+    public String Listaproduto() {
+        String produtos = "";
+        List<Produto> listaProdutos = new ArrayList(this.produtos.values());
+        Collections.sort(listaProdutos, new ComparadorPorNomeProduto());
+
+       for (Produto produto : listaProdutos) {
+           produtos += this.nome + " - " + produto.toString() + " | ";
+       }
+
+        return produtos;
+
+    }
+
 
     @Override
     public void cadastraProduto(String nome, String descricao, double preco) {

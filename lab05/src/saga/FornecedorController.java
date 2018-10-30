@@ -1,10 +1,10 @@
 package saga;
 
+import saga.distribuidor.ComparadorPorNomeFornecedor;
 import saga.distribuidor.Fornecedor;
 import saga.distribuidor.FornecedorBase;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class FornecedorController {
     private Map<String, Fornecedor> fornecedores;
@@ -38,6 +38,18 @@ public class FornecedorController {
             throw new IllegalArgumentException("");
         }
         return fornecedor;
+    }
+
+    public String listaFornecedores() {
+        String fornecedores = "";
+        List<Fornecedor> listaFornecedores = new ArrayList<>(this.fornecedores.values());
+        Collections.sort(listaFornecedores, new ComparadorPorNomeFornecedor());
+
+        for (Fornecedor fornecedor : listaFornecedores) {
+            fornecedores += fornecedor.Listaproduto() + " | ";
+        }
+
+        return fornecedores;
     }
 
     public void removeFornecedor(String nome) {

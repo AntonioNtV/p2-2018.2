@@ -12,10 +12,8 @@ public class FornecedorBase extends FornecedorAbstract {
     }
 
     @Override
-    public String Listaproduto() {
-        List listaProdutos = new ArrayList(this.produtos.values());
-        Collections.sort(listaProdutos, new ComparadorPorNomeProduto());
-
+    public String getNome() {
+        return this.nome;
     }
 
     @Override
