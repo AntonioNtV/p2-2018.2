@@ -2,8 +2,8 @@ package saga.cliente;
 
 public class ClienteBase extends ClienteAbstract {
 
-    public ClienteBase(String cpf, String nome, String email, String localizacao) {
-        super(cpf, nome, email, localizacao);
+    public ClienteBase(String cpf, String email, String nome, String localizacao) {
+        super(cpf, email, nome, localizacao);
     }
 
     @Override

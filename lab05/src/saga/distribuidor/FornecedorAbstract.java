@@ -33,7 +33,11 @@ public abstract class FornecedorAbstract implements Fornecedor {
 
     @Override
     public void cadastraProduto(String nome, String descricao, double preco) {
-        this.produtos.put(nome.toUpperCase(), new ProdutoBase(nome, descricao, preco));
+        if (!this.produtos.containsKey(nome.toUpperCase())) {
+            this.produtos.put(nome.toUpperCase(), new ProdutoBase(nome, descricao, preco));
+        } else {
+            throw new IllegalArgumentException("");
+        }
     }
 
     @Override

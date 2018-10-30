@@ -4,14 +4,14 @@ import java.util.Objects;
 
 public abstract class ClienteAbstract implements Cliente {
     protected String cpf;
-    protected String nome;
     protected String email;
+    protected String nome;
     protected String localizacao;
 
-    public ClienteAbstract(String cpf, String nome, String email, String localizacao) {
+    public ClienteAbstract(String cpf, String email, String nome, String localizacao) {
         this.cpf = cpf;
-        this.nome = nome;
         this.email = email;
+        this.nome = nome;
         this.localizacao = localizacao;
     }
 
@@ -32,6 +32,9 @@ public abstract class ClienteAbstract implements Cliente {
         }
     }
 
+    public String getNome() {
+        return this.nome;
+    }
 
     @Override
     public boolean equals(Object o) {
