@@ -1,9 +1,9 @@
 package saga;
 
 import saga.cliente.Cliente;
+import saga.cliente.ComparadorPeloNomeDoCliente;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class ClienteController {
     private Map<String, Cliente> clientes;
@@ -33,5 +33,35 @@ public class ClienteController {
             throw new IllegalArgumentException("Erro na exibicao do cliente: cliente nao existe.");
         }
         return this.clientes.get(cpf).toString();
+    }
+
+    public String exibeClientes() {
+        String clientes = "";
+        List<Cliente> listaClientes = new ArrayList<>(this.clientes.values());
+        Collections.sort(listaClientes, new ComparadorPeloNomeDoCliente());
+
+        for (Cliente cliente : listaClientes) {
+            clientes += cliente.toString() + " | ";
+        }
+
+        return clientes.substring(0, clientes.length() -1);
+    }
+
+    public void editaCliente(String cpf, String atributo, String novoValor) {
+        if (!atributo.equals("nome") || !atributo.equals("email") || !atributo.equals("localizacao")) {
+            throw new IllegalArgumentException("Erro na edicao do cliente: atributo nao existe.");
+        } else if (atributo.equals(null) || atributo.equals("")) {
+            throw  new IllegalArgumentException("Erro na edicao do cliente: atributo nao pode ser vazio ou nulo.");
+        } else if (novoValor.equals(null) || novoValor.equals("")) {
+            throw new IllegalArgumentException("Erro na edicao do cliente: novo valor nao pode ser vazio ou nulo.");
+        } else if (!this.clientes.containsKey(cpf)) {
+            throw new IllegalArgumentException("Erro na edicao do cliente: cliente nao existe.");
+        }
+
+        this.clientes.get(cpf).editaCliente(atributo, novoValor);
+    }
+
+    public void removeCliente(String cpf) {
+        this.clientes.remove(cpf);
     }
 }

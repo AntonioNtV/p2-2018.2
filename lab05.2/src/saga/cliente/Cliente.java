@@ -23,6 +23,34 @@ public class Cliente {
         this.localizacao = localizacao;
     }
 
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void editaCliente(String atributo, String novoValor) {
+        if (!atributo.equals("nome") || !atributo.equals("email") || !atributo.equals("localizacao")) {
+            throw new IllegalArgumentException("Erro na edicao do cliente: atributo nao existe.");
+        } else if (atributo.equals(null) || atributo.equals("")) {
+            throw  new IllegalArgumentException("Erro na edicao do cliente: atributo nao pode ser vazio ou nulo.");
+        } else if (novoValor.equals(null) || novoValor.equals("")) {
+            throw new IllegalArgumentException("Erro na edicao do cliente: novo valor nao pode ser vazio ou nulo.");
+        }
+
+        switch (atributo) {
+            case "nome":
+                this.nome = novoValor;
+                break;
+
+            case "email":
+                this.email = novoValor;
+                break;
+
+            case "localizacao":
+                this.localizacao = novoValor;
+                break;
+        }
+    }
+
     @Override
     public String toString() {
         return this.nome + " - " + this.localizacao + " - " + this.email;

@@ -12,15 +12,15 @@ public class Facace {
     }
 
     public void exibeClientes() {
-        //TODO
+        clientes.exibeClientes();
     }
 
     public void editacliente(String cpf, String atributo, String novoValor) {
-        //TODO
+        clientes.editaCliente(cpf, atributo, novoValor);
     }
 
     public void removeCliente(String cpf) {
-        //TODO
+        clientes.removeCliente(cpf);
     }
 
     public void adicionaFornecedor(String nome, String email, String telefone) {
