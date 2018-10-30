@@ -17,7 +17,7 @@ public class FornecedorController {
         if (!this.fornecedores.containsKey(nome.toUpperCase())) {
             this.fornecedores.put(nome.toUpperCase(), new FornecedorBase(nome, email, numero));
         } else {
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("Fornecedor já cadastrado");
         }
     }
 
@@ -25,7 +25,7 @@ public class FornecedorController {
         if (!this.fornecedores.containsKey(nomeFornecedor.toUpperCase())) {
             this.fornecedores.get(nomeFornecedor.toUpperCase()).cadastraProduto(nomeProduto, descricao, preco);
         } else {
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("Fornecedor não cadastrado");
         }
     }
 
@@ -35,7 +35,7 @@ public class FornecedorController {
         if (this.fornecedores.containsKey(nome.toUpperCase())) {
             fornecedor = this.fornecedores.get(nome.toUpperCase()).toString();
         } else {
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("Fornecedor não cadastrado - busca");
         }
         return fornecedor;
     }
@@ -64,7 +64,7 @@ public class FornecedorController {
         if (this.fornecedores.containsKey(nome.toUpperCase())) {
             this.fornecedores.get(nome.toUpperCase()).editorFornecedor(atributo, atributoNovo);
         } else {
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("Fornecedor não cadastrado - editor");
         }
     }
 
@@ -72,7 +72,7 @@ public class FornecedorController {
         if (this.fornecedores.containsKey(nomeFornecedor.toUpperCase())) {
             this.fornecedores.get(nomeFornecedor.toUpperCase()).editaPrecoProduto(nomeProduto, novoPreco);
         } else {
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("Fornecedor não cadastrado - editorProduto");
         }
     }
 }
