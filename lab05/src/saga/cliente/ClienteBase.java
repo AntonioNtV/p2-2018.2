@@ -12,23 +12,6 @@ public class ClienteBase extends ClienteAbstract {
     }
 
     @Override
-    public void editorCliente(String atributo, String atributoNovo) {
-        switch (atributo) {
-            case "NOME":
-                this.nome = atributoNovo;
-                break;
-
-            case "EMAIL":
-                this.email = atributoNovo;
-                break;
-
-            case "LOCALIZACAO":
-                this.localizacao = atributoNovo;
-                break;
-        }
-    }
-
-    @Override
     public boolean equals(Object o) {
         return super.equals(o);
     }

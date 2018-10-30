@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0746518-3707-4ed3-b564-372fdcf06783" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/saga/ClienteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/saga/cliente/ClienteAbstract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/saga/distri/Fornecedor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/saga/distri/FornecedorAbstract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/saga/distri/FornecedorBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/saga/distri/Produto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/saga/distri/ProdutoAbstract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/saga/distri/ProdutoBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab04/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab04/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab04/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab04/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/saga/cliente/ClienteAbstract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/saga/cliente/ClienteAbstract.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/saga/cliente/ClienteBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/saga/cliente/ClienteBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/saga/distribuidor/Distribuidor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/saga/distribuidor/DistribuidorBase.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,24 +23,24 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="23" />
+          <entry key="java" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="23" />
+          <entry key="JAVA" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1967" />
-          <entry key="txt" value="36" />
+          <entry key="java" value="1974" />
+          <entry key="txt" value="50" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1967" />
-          <entry key="PLAIN_TEXT" value="36" />
+          <entry key="JAVA" value="1974" />
+          <entry key="PLAIN_TEXT" value="50" />
         </counts>
       </usages-collector>
     </session>
@@ -59,27 +48,49 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/saga/distri/FornecedorAbstract.java">
+        <entry file="file://$PROJECT_DIR$/src/saga/distribuidor/produtos/ProdutoAbstract.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1683">
-              <caret line="51" selection-start-line="51" selection-end-line="51" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1055#1056#0" expanded="true" />
-                <element signature="e#1096#1097#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="132">
+              <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/saga/distribuidor/produtos/ProdutoBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/saga/distribuidor/produtos/Produto.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/saga/cliente/Cliente.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/saga/distri/FornecedorBase.java">
+        <entry file="file://$PROJECT_DIR$/src/saga/cliente/ClienteAbstract.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="259">
+              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
               <folding>
-                <element signature="e#554#555#0" expanded="true" />
-                <element signature="e#632#633#0" expanded="true" />
+                <element signature="e#885#886#0" expanded="true" />
+                <element signature="e#925#926#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -88,8 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/saga/cliente/ClienteBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="655">
-              <caret line="39" column="1" lean-forward="true" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+            <state relative-caret-position="396">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="e#255#256#0" expanded="true" />
                 <element signature="e#335#336#0" expanded="true" />
@@ -98,42 +109,6 @@
                 <element signature="e#886#887#0" expanded="true" />
                 <element signature="e#925#926#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/saga/distri/ProdutoBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/saga/distri/ProdutoAbstract.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/saga/distri/Produto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/saga/distri/Fornecedor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -156,8 +131,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/saga/cliente/Cliente.java" />
         <option value="$PROJECT_DIR$/src/Facade.java" />
-        <option value="$PROJECT_DIR$/src/saga/cliente/ClienteAbstract.java" />
-        <option value="$PROJECT_DIR$/src/saga/cliente/ClienteBase.java" />
         <option value="$PROJECT_DIR$/src/saga/ClienteController.java" />
         <option value="$PROJECT_DIR$/src/saga/distribuidor/DistribuidorAbstract.java" />
         <option value="$PROJECT_DIR$/src/saga/distribuidor/DistribuidorBase.java" />
@@ -182,6 +155,8 @@
         <option value="$PROJECT_DIR$/src/saga/distri/Fornecedor.java" />
         <option value="$PROJECT_DIR$/src/saga/distri/FornecedorAbstract.java" />
         <option value="$PROJECT_DIR$/src/saga/distri/FornecedorBase.java" />
+        <option value="$PROJECT_DIR$/src/saga/cliente/ClienteBase.java" />
+        <option value="$PROJECT_DIR$/src/saga/cliente/ClienteAbstract.java" />
       </list>
     </option>
   </component>
@@ -234,7 +209,7 @@
               <item name="lab05" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="saga" type="462c0819:PsiDirectoryNode" />
-              <item name="distri" type="462c0819:PsiDirectoryNode" />
+              <item name="distribuidor" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -245,7 +220,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540862617541" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540862820225" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab04" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -278,7 +253,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1540483239982</updated>
-      <workItem from="1540483242213" duration="15115000" />
+      <workItem from="1540483242213" duration="15354000" />
     </task>
     <task id="LOCAL-00001" summary="Criação dos distribuidores">
       <created>1540484524267</created>
@@ -287,11 +262,25 @@
       <option name="project" value="LOCAL" />
       <updated>1540484524267</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="produtoCriado">
+      <created>1540862642930</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1540862642939</updated>
+    </task>
+    <task id="LOCAL-00003" summary="produtoCriado">
+      <created>1540862754130</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1540862754130</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15115000" />
+    <option name="totallyTimeSpent" value="15354000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-6" width="1855" height="1086" extended-state="6" />
@@ -365,7 +354,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Criação dos distribuidores" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criação dos distribuidores" />
+    <MESSAGE value="produtoCriado" />
+    <option name="LAST_COMMIT_MESSAGE" value="produtoCriado" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Facade.java">
@@ -387,24 +377,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/saga/cliente/Cliente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/saga/cliente/ClienteAbstract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
-          <folding>
-            <element signature="e#885#886#0" expanded="true" />
-            <element signature="e#925#926#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/saga/distribuidor/produtos/ProdutoBase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
@@ -412,7 +384,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/saga/distri/FornecedorAbstract.java">
+    <entry file="file://$PROJECT_DIR$/src/saga/distribuidor/FornecedorAbstract.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1683">
           <caret line="51" selection-start-line="51" selection-end-line="51" />
@@ -424,17 +396,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/saga/distri/Fornecedor.java">
+    <entry file="file://$PROJECT_DIR$/src/saga/distribuidor/FornecedorBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#554#555#0" expanded="true" />
+            <element signature="e#632#633#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/saga/distribuidor/Fornecedor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/saga/distribuidor/produtos/ProdutoAbstract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/saga/distribuidor/produtos/ProdutoBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/saga/distribuidor/produtos/Produto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/saga/cliente/Cliente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/saga/cliente/ClienteBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="39" column="1" lean-forward="true" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+        <state relative-caret-position="396">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
           <folding>
             <element signature="e#255#256#0" expanded="true" />
             <element signature="e#335#336#0" expanded="true" />
@@ -446,34 +457,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/saga/distri/ProdutoBase.java">
+    <entry file="file://$PROJECT_DIR$/src/saga/cliente/ClienteAbstract.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/saga/distri/ProdutoAbstract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/saga/distri/Produto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/saga/distri/FornecedorBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="259">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
           <folding>
-            <element signature="e#554#555#0" expanded="true" />
-            <element signature="e#632#633#0" expanded="true" />
+            <element signature="e#885#886#0" expanded="true" />
+            <element signature="e#925#926#0" expanded="true" />
           </folding>
         </state>
       </provider>

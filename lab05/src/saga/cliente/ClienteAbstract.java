@@ -16,10 +16,22 @@ public abstract class ClienteAbstract implements Cliente {
     }
 
     @Override
-    public abstract String toString();
+    public void editorCliente(String atributo, String atributoNovo) {
+        switch (atributo) {
+            case "NOME":
+                this.nome = atributoNovo;
+                break;
 
-    @Override
-    public abstract void editorCliente(String atributo, String atributoNovo);
+            case "EMAIL":
+                this.email = atributoNovo;
+                break;
+
+            case "LOCALIZACAO":
+                this.localizacao = atributoNovo;
+                break;
+        }
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -33,4 +45,7 @@ public abstract class ClienteAbstract implements Cliente {
     public int hashCode() {
         return Objects.hash(cpf);
     }
+
+    @Override
+    public abstract String toString();
 }
