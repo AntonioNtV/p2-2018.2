@@ -24,5 +24,14 @@ public class ClienteController {
         } else if (cpf.length() != 11) {
             throw  new IllegalArgumentException("Erro no cadastro do cliente: cpf invalido.");
         }
+
+        this.clientes.put(cpf, new Cliente(cpf, nome, email, localizacao));
+    }
+
+    public String exibeCliente(String cpf) {
+        if (!this.clientes.containsKey(cpf)) {
+            throw new IllegalArgumentException("Erro na exibicao do cliente: cliente nao existe.");
+        }
+        return this.clientes.get(cpf).toString();
     }
 }

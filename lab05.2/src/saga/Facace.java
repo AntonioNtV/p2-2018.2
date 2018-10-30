@@ -1,12 +1,14 @@
 package saga;
 
 public class Facace {
+    ClienteController clientes = new ClienteController();
+
     public void adicionaCliente(String cpf, String nome, String email, String localizacao) {
-        //TODO
+        clientes.adicionaCliente(cpf,nome,email,localizacao);
     }
 
     public void exibeCliente(String cpf) {
-        //TODO
+        clientes.exibeCliente(cpf);
     }
 
     public void exibeClientes() {
