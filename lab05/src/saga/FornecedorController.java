@@ -22,7 +22,7 @@ public class FornecedorController {
     }
 
     public void cadastroProdutos(String nomeFornecedor, String nomeProduto, String descricao, double preco) {
-        if (!this.fornecedores.containsKey(nomeFornecedor.toUpperCase())) {
+        if (this.fornecedores.containsKey(nomeFornecedor.toUpperCase())) {
             this.fornecedores.get(nomeFornecedor.toUpperCase()).cadastraProduto(nomeProduto, descricao, preco);
         } else {
             throw new IllegalArgumentException("Fornecedor não cadastrado");
@@ -46,10 +46,10 @@ public class FornecedorController {
         Collections.sort(listaFornecedores, new ComparadorPorNomeFornecedor());
 
         for (Fornecedor fornecedor : listaFornecedores) {
-            fornecedores += fornecedor.Listaproduto() + " | ";
+            fornecedores += fornecedor.Listaproduto();
         }
 
-        return fornecedores;
+        return fornecedores.substring(1, fornecedores.length() -1);
     }
 
     public void removeFornecedor(String nome) {

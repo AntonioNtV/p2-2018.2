@@ -25,11 +25,14 @@ public class main {
         fornecedor.cadastroProdutos("Josenilda","Biscoito Doce","Maizena",3.00);
 
 
-        System.out.println("FORNECEDORES INDIVIDUAIS");
+        System.out.println("FORNECEDORES INDIVIDUAIS\n");
         System.out.println(fornecedor.buscaFornecedor("Josenilda"));
         System.out.println(fornecedor.buscaFornecedor("dona Inês"));
 
-        System.out.println("CLIENTES INDIVIDUAIS");
+        System.out.println("FORNECEDORES LISTA\n");
+        System.out.println(fornecedor.listaFornecedores());
+
+        System.out.println("\nCLIENTES INDIVIDUAIS");
         System.out.println(clientes.BuscaDeCliente("543-412-312-40"));
         System.out.println(clientes.BuscaDeCliente("123.953.214-86"));
         System.out.println(clientes.BuscaDeCliente("038.079.004-11"));

@@ -40,7 +40,6 @@ public abstract class FornecedorAbstract implements Fornecedor {
         }
     }
 
-
     @Override
     public String Listaproduto() {
         String produtos = "";
@@ -50,11 +49,8 @@ public abstract class FornecedorAbstract implements Fornecedor {
        for (Produto produto : listaProdutos) {
            produtos += this.nome + " - " + produto.toString() + " | ";
        }
-
         return produtos;
-
     }
-
 
     @Override
     public void cadastraProduto(String nome, String descricao, double preco) {
@@ -80,5 +76,4 @@ public abstract class FornecedorAbstract implements Fornecedor {
 
     @Override
     public abstract String toString();
-
 }
