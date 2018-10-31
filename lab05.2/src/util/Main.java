@@ -49,7 +49,22 @@ public class Main {
         fornecedores.editaFornecedor("Seu olavo","numero","3322-2067");
         System.out.println(fornecedores.exibeFornecedor("Seu olavo"));
 
+        //Cadastro Produtos
+        fornecedores.adicionaProduto("Seu olavo","X-france","Hamburguer de frango com queijo e calabresa",5.00);
+        fornecedores.adicionaProduto("Seu olavo","x-burguer","Hamburguer de carne com queijo e calabresa",4.50);
+        fornecedores.adicionaProduto("Dona Alba","Rubacao","Feijao com arroz e queijo coalho",14.00);
+        fornecedores.adicionaProduto("Marcos","Coxao de Pizza","Coxao de frango com presunto e queijo",2.50);
+        fornecedores.adicionaProduto("Marcos","Coxao de Frango","Coxao de frango com cheddar",2.50);
 
+        System.out.println("\n Fornecedores - exibeProduto");
+        System.out.println(fornecedores.exibeProduto("x-france","Hamburguer de frango com queijo e calabresa","seu olavo"));
+        System.out.println(fornecedores.exibeProduto("x-burguer","Hamburguer de carne com queijo e calabresa","seu olavo"));
+        System.out.println(fornecedores.exibeProduto("rubacao","Feijao com arroz e queijo coalho","dona alba"));
+        System.out.println(fornecedores.exibeProduto("Coxao de pizza","Coxao de frango com presunto e queijo","Marcos"));
+        System.out.println(fornecedores.exibeProduto("Coxao de Frango","Coxao de frango com cheddar","Marcos"));
+
+        System.out.println("\n Fornecedores - exibeProdutos");
+        System.out.println(fornecedores.exibeProdutos());
 
 
     }

@@ -79,9 +79,30 @@ public class Fornecedor {
     }
 
     public String exibeProduto(String nome, String descricao) {
-        return null;
+        ProdutoID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
+
+        if (nome == null || nome.equals("")) {
+            throw new IllegalArgumentException("Erro na exibicao de produto: nome nao pode ser vazio ou nulo.");
+        } else if (descricao == null || descricao.equals("")) {
+            throw new IllegalArgumentException("Erro na exibicao de produto: descricao nao pode ser vazia ou nula.");
+        } else if (!this.possuiProduto(produto)){
+            throw new IllegalArgumentException("Erro na exibicao de produto: produto nao existe.");
+        }
+
+        return this.produtosCadastrados.get(produto).toString();
     }
 
+    public String exibeProdutos() {
+        String produtos = "";
+
+        List<Produto> produtosList = new ArrayList<>(this.produtosCadastrados.values());
+
+        for (Produto produto : produtosList) {
+            produtos += this.nome + " - " + produto.toString() + " | ";
+        }
+
+        return produtos;
+    }
 
     @Override
     public String toString() {

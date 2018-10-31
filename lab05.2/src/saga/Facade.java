@@ -58,11 +58,11 @@ public class Facade {
     }
 
     public void exibeProduto(String nome, String descricao, String fornecedor) {
-        //TODO
+        this.fornecedores.exibeProduto(nome, descricao, fornecedor);
     }
 
     public void exibeProdutos() {
-        //TODO
+        this.fornecedores.exibeProdutos();
     }
 
     public void editaProduto(String nome, String descricao, String fornecedor, double novoPreco) {

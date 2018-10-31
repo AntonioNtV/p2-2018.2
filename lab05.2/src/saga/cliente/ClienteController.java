@@ -44,7 +44,7 @@ public class ClienteController {
             clientes += cliente.toString() + " | ";
         }
 
-        return clientes.substring(0, clientes.length() -1);
+        return clientes.substring(0, clientes.length() - 3);
     }
 
     public void editaCliente(String cpf, String atributo, String novoValor) {

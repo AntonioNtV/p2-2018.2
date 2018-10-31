@@ -37,14 +37,13 @@ public class FornecedorController {
     public String exibeFornecedores() {
         String fornecedores = "";
 
-        List<Fornecedor> fornecedoresLista = new ArrayList<>(this.fornecedores.values());
-        Collections.sort(fornecedoresLista, new ComparadorPorNomeFornecedor());
+        List<Fornecedor> fornecedoresLista = this.ordenaFornecedorPeloNome();
 
         for (Fornecedor fornecedor : fornecedoresLista) {
             fornecedores += fornecedor.toString() + " | ";
         }
 
-        return fornecedores.substring(0, fornecedores.length() -1);
+        return fornecedores.substring(0, fornecedores.length()- 3);
     }
 
     public void editaFornecedor(String nome, String atributo, String novoValor) {
@@ -77,9 +76,9 @@ public class FornecedorController {
     }
 
     public void adicionaProduto(String fornecedor, String nome, String descricao, double preco) {
-        ProdutoID produto = new ProdutoID(nome, descricao);
+        ProdutoID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
 
-        if (!this.fornecedores.containsKey(nome.toLowerCase())) {
+        if (!this.fornecedores.containsKey(fornecedor.toLowerCase())) {
             throw new IllegalArgumentException("Erro no cadastro de produto: fornecedor nao existe.");
         } else if (nome == null || nome.equals("")) {
             throw new IllegalArgumentException("Erro no cadastro de produto: nome nao pode ser vazio ou nulo.");
@@ -99,8 +98,40 @@ public class FornecedorController {
     }
 
     public String exibeProduto(String nome, String descricao, String fornecedor) {
-        return null;
+        ProdutoID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
 
+        if (nome == null || nome.equals("")) {
+            throw new IllegalArgumentException("Erro na exibicao de produto: nome nao pode ser vazio ou nulo.");
+        } else if (fornecedor == null || fornecedor.equals("")) {
+            throw new IllegalArgumentException("Erro na exibicao de produto: fornecedor nao pode ser vazio ou nulo.");
+        } else if (descricao == null || descricao.equals("")) {
+            throw new IllegalArgumentException("Erro na exibicao de produto: descricao nao pode ser vazia ou nula.");
+        } else if (!this.fornecedores.containsKey(fornecedor.toLowerCase())) {
+            throw new IllegalArgumentException("Erro na exibicao de produto: fornecedor nao existe.");
+        } else if (!this.fornecedores.get(fornecedor.toLowerCase()).possuiProduto(produto)) {
+            throw new IllegalArgumentException("Erro na exibicao de produto: produto nao existe.");
+        }
+
+        return this.fornecedores.get(fornecedor.toLowerCase()).exibeProduto(nome, descricao);
+
+    }
+
+    public String exibeProdutos() {
+        String produtos = "";
+        List<Fornecedor> fornecedorList = this.ordenaFornecedorPeloNome();
+
+        for (Fornecedor fornecedor : fornecedorList) {
+            produtos += fornecedor.exibeProdutos();
+        }
+
+        return produtos.substring(0, produtos.length() - 3);
+    }
+
+    private List<Fornecedor> ordenaFornecedorPeloNome() {
+        List<Fornecedor> fornecedorList = new ArrayList<>(this.fornecedores.values());
+        Collections.sort(fornecedorList, new ComparadorPorNomeFornecedor());
+
+        return fornecedorList;
     }
 
 

@@ -10,4 +10,9 @@ public class Produto {
         this.descricao = descricao;
         this.preco = preco;
     }
+
+    @Override
+    public String toString() {
+        return this.nome + " - " + this.descricao + " - R$" + String.format("%.2f",this.preco);
+    }
 }
