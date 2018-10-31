@@ -123,7 +123,22 @@ public class Fornecedor {
 
     }
 
-    @Override
+    public void removeProduto(String nome, String descricao) {
+        ProdutoID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
+
+        if (descricao == null || descricao.equals("")) {
+            throw new IllegalArgumentException("Erro na remocao de produto: descricao nao pode ser vazia ou nula.");
+        } else if (nome == null || nome.equals("")) {
+            throw new IllegalArgumentException("Erro na remocao de produto: nome nao pode ser vazio ou nulo.");
+        } else if (!this.possuiProduto(produto)) {
+            throw new IllegalArgumentException("Erro na remocao de produto: produto nao existe.");
+        }
+
+        this.produtosCadastrados.remove(produto);
+    }
+
+
+        @Override
     public String toString() {
         return this.nome + " - " + this.email + " - " + this.numero;
     }

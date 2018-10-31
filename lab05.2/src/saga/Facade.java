@@ -66,7 +66,7 @@ public class Facade {
     }
 
     public void editaProduto(String nome, String descricao, String fornecedor, double novoPreco) {
-        //TODO
+        this.fornecedores.editaProduto(nome, descricao, fornecedor, novoPreco);
     }
 
     public void removeProduto(String nome, String descricao, String fornecedor) {

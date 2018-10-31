@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a82d4cfe-1524-4a06-bc25-4a32d7793a63" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../lab05.2/src/saga/Produto/ComparadorPeloToStringProduto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab05.2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab05.2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab05.2/src/saga/Produto/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab05.2/src/saga/Produto/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab05.2/src/saga/Facade.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab05.2/src/saga/Facade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab05.2/src/saga/fornecedor/Fornecedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab05.2/src/saga/fornecedor/Fornecedor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab05.2/src/saga/fornecedor/FornecedorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab05.2/src/saga/fornecedor/FornecedorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab05/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab05/.idea/workspace.xml" afterDir="false" />
@@ -175,7 +174,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541004411617" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541005449950" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -201,12 +200,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1540984157293</updated>
-      <workItem from="1540984162626" duration="2845000" />
+      <workItem from="1540984162626" duration="2999000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2845000" />
+    <option name="totallyTimeSpent" value="2999000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-6" width="1855" height="1086" extended-state="6" />

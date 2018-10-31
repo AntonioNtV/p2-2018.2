@@ -154,6 +154,24 @@ public class FornecedorController {
         this.fornecedores.get(fornecedor.toLowerCase()).editaProduto(nome, descricao, novoPreco);
     }
 
+    public void removeProduto(String nome, String descricao, String fornecedor) {
+        ProdutoID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
+
+        if (fornecedor == null || fornecedor.equals("")) {
+            throw new IllegalArgumentException("Erro na remocao de produto: fornecedor nao pode ser vazio ou nulo.");
+        } else if (descricao == null || descricao.equals("")) {
+            throw new IllegalArgumentException("Erro na remocao de produto: descricao nao pode ser vazia ou nula.");
+        } else if (nome == null || nome.equals("")) {
+            throw new IllegalArgumentException("Erro na remocao de produto: nome nao pode ser vazio ou nulo.");
+        } else if (!this.fornecedores.containsKey(fornecedor.toLowerCase())) {
+            throw new IllegalArgumentException("Erro na remocao de produto: fornecedor nao existe.");
+        } else if (!this.fornecedores.get(fornecedor.toLowerCase()).possuiProduto(produto)) {
+            throw new IllegalArgumentException("Erro na remocao de produto: produto nao existe.");
+        }
+
+        this.fornecedores;
+    }
+
 
 
 
