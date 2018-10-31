@@ -68,6 +68,12 @@ public class FornecedorController {
     }
 
     public void removeFornecedor(String nome) {
+        if (this.fornecedores.containsKey(nome.toLowerCase())) {
+            throw new IllegalArgumentException("Erro na exibicao do fornecedor: fornecedor nao existe.");
+        } else if (nome == null || nome.equals("")) {
+            throw new IllegalArgumentException("Erro na remocao do fornecedor: nome do fornecedor nao pode ser vazio.");
+        }
+
         this.fornecedores.remove(nome.toLowerCase());
     }
 

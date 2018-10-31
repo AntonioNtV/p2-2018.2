@@ -65,6 +65,12 @@ public class ClienteController {
     }
 
     public void removeCliente(String cpf) {
+        if (!this.clientes.containsKey(cpf)) {
+            throw new IllegalArgumentException("Erro na remocao do cliente: cliente nao existe.");
+        } else if (cpf == null || cpf.equals("")) {
+            throw new IllegalArgumentException("Erro no cadastro do cliente: cpf nao pode ser vazio ou nulo");
+        }
+
         this.clientes.remove(cpf);
     }
 }

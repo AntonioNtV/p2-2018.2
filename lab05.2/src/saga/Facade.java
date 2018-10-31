@@ -1,6 +1,6 @@
 package saga;
 
-public class Facace {
+public class Facade {
     ClienteController clientes = new ClienteController();
     FornecedorController fornecedores = new FornecedorController();
 
