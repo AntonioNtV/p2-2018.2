@@ -23,7 +23,7 @@ public class Fornecedor {
     }
 
     public String getNome() {
-        return this.getNome();
+        return this.nome;
     }
 
     public void editaFornecedor(String atributo, String novoValor) {

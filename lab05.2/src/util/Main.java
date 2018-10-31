@@ -1,6 +1,7 @@
 package util;
 
 import saga.ClienteController;
+import saga.FornecedorController;
 
 public class Main {
     public static void main(String[] args) {
@@ -24,5 +25,30 @@ public class Main {
         System.out.println("\nClientes - editaClientes");
         clientes.editaCliente("00023827490", "nome","Manuel");
         System.out.println(clientes.exibeCliente("00023827490"));
+
+
+        //Cadastro Fornecedores
+        FornecedorController fornecedores = new FornecedorController();
+        fornecedores.adicionaFornecedor("Marcos", "marcos@gmail.com", "83 99151-3570");
+        fornecedores.adicionaFornecedor("Helhao", "quiosque@gmail.com", "83 98736-5050");
+        fornecedores.adicionaFornecedor("Dona Alba", "alba@gmail.com", "83 99945-1294");
+        fornecedores.adicionaFornecedor("Seu Olavo", "olavo@gmail.com", "83 99348-1092");
+
+        System.out.println("\nFornecedores - exibeFornecedor");
+        System.out.println(fornecedores.exibeFornecedor("Marcos"));
+        System.out.println(fornecedores.exibeFornecedor("Helhao"));
+        System.out.println(fornecedores.exibeFornecedor("Dona Alba"));
+        System.out.println(fornecedores.exibeFornecedor("Seu olavo"));
+
+        System.out.println("\nFornecedores - exibeFornecedores");
+        System.out.println(fornecedores.exibeFornecedores());
+
+        System.out.println("\nFornecedores - editaFornecedor");
+        fornecedores.editaFornecedor("Seu olavo","email","olavetes@gmail.com");
+        System.out.println(fornecedores.exibeFornecedor("Seu olavo"));
+        fornecedores.editaFornecedor("Seu olavo","numero","3322-2067");
+        System.out.println(fornecedores.exibeFornecedor("Seu olavo"));
+
+
     }
 }
