@@ -1,7 +1,7 @@
 package util;
 
-import saga.ClienteController;
-import saga.FornecedorController;
+import saga.cliente.ClienteController;
+import saga.fornecedor.FornecedorController;
 
 public class Main {
     public static void main(String[] args) {

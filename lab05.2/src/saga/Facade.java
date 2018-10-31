@@ -1,51 +1,60 @@
 package saga;
 
+import saga.cliente.ClienteController;
+import saga.fornecedor.FornecedorController;
+
 public class Facade {
-    ClienteController clientes = new ClienteController();
-    FornecedorController fornecedores = new FornecedorController();
+    ClienteController clientes;
+    FornecedorController fornecedores;
+
+    public Facade() {
+        this.clientes = new ClienteController();
+        this.fornecedores = new FornecedorController();
+
+    }
 
     public void adicionaCliente(String cpf, String nome, String email, String localizacao) {
-        clientes.adicionaCliente(cpf,nome,email,localizacao);
+        this.clientes.adicionaCliente(cpf,nome,email,localizacao);
     }
 
     public void exibeCliente(String cpf) {
-        clientes.exibeCliente(cpf);
+        this.clientes.exibeCliente(cpf);
     }
 
     public void exibeClientes() {
-        clientes.exibeClientes();
+        this.clientes.exibeClientes();
     }
 
     public void editacliente(String cpf, String atributo, String novoValor) {
-        clientes.editaCliente(cpf, atributo, novoValor);
+        this.clientes.editaCliente(cpf, atributo, novoValor);
     }
 
     public void removeCliente(String cpf) {
-        clientes.removeCliente(cpf);
+        this.clientes.removeCliente(cpf);
     }
 
     public void adicionaFornecedor(String nome, String email, String telefone) {
-        fornecedores.adicionaFornecedor(nome, email, telefone);
+        this.fornecedores.adicionaFornecedor(nome, email, telefone);
     }
 
     public void exibeFornecedor(String nome) {
-        fornecedores.exibeFornecedor(nome);
+        this.fornecedores.exibeFornecedor(nome);
     }
 
     public void exibeFornecedores() {
-        fornecedores.exibeFornecedores();
+        this.fornecedores.exibeFornecedores();
     }
 
     public void editaFornecedor(String nome, String atributo, String novoValor) {
-        fornecedores.editaFornecedor(nome, atributo, novoValor);
+        this.fornecedores.editaFornecedor(nome, atributo, novoValor);
     }
 
     public void removeFornecedor(String nome) {
-        fornecedores.removeFornecedor(nome);
+        this.fornecedores.removeFornecedor(nome);
     }
 
-    public void adicionaProduto(String fornecedor, String nome, String descricao, double Preco) {
-        //TODO
+    public void adicionaProduto(String fornecedor, String nome, String descricao, double preco) {
+        this.fornecedores.adicionaProduto(fornecedor, nome, descricao, preco);
     }
 
     public void exibeProduto(String nome, String descricao, String fornecedor) {

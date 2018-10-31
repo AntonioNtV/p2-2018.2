@@ -1,12 +1,15 @@
 package saga.fornecedor;
 
-import java.util.Arrays;
-import java.util.List;
+import saga.Produto.Produto;
+import saga.Produto.ProdutoID;
+
+import java.util.*;
 
 public class Fornecedor {
     private String nome;
     private String email;
     private String numero;
+    private Map<ProdutoID, Produto> produtosCadastrados;
 
     public Fornecedor(String nome, String email, String numero) {
         if (nome == null || nome.equals("")) {
@@ -20,6 +23,7 @@ public class Fornecedor {
         this.nome = nome;
         this.email = email;
         this.numero = numero;
+        this.produtosCadastrados = new HashMap<>();
     }
 
     public String getNome() {
@@ -50,6 +54,34 @@ public class Fornecedor {
                 break;
         }
     }
+
+    public boolean possuiProduto(ProdutoID produto) {
+        if (this.produtosCadastrados.containsKey(produto)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void adicionaProduto(ProdutoID produtoID, String nome, String descricao, double preco) {
+       if (nome == null || nome.equals("")) {
+            throw new IllegalArgumentException("Erro no cadastro de produto: nome nao pode ser vazio ou nulo.");
+        } else if (descricao == null || descricao.equals("")) {
+            throw new IllegalArgumentException("Erro no cadastro de produto: nome nao pode ser vazio ou nulo.");
+        } else if (preco < 0) {
+            throw new IllegalArgumentException("Erro no cadastro de produto: preco invalido.");
+       } else if (this.produtosCadastrados.containsKey(produtoID)) {
+           throw new IllegalArgumentException("Erro nos cadastro de produto: produto ja existe.");
+       }
+
+       this.produtosCadastrados.put(produtoID, new Produto(nome, descricao, preco));
+
+    }
+
+    public String exibeProduto(String nome, String descricao) {
+        return null;
+    }
+
 
     @Override
     public String toString() {

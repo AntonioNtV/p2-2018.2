@@ -1,7 +1,6 @@
-package saga;
+package saga.fornecedor;
 
-import saga.fornecedor.ComparadorPorNomeFornecedor;
-import saga.fornecedor.Fornecedor;
+import saga.Produto.ProdutoID;
 
 import java.util.*;
 
@@ -75,6 +74,33 @@ public class FornecedorController {
         }
 
         this.fornecedores.remove(nome.toLowerCase());
+    }
+
+    public void adicionaProduto(String fornecedor, String nome, String descricao, double preco) {
+        ProdutoID produto = new ProdutoID(nome, descricao);
+
+        if (!this.fornecedores.containsKey(nome.toLowerCase())) {
+            throw new IllegalArgumentException("Erro no cadastro de produto: fornecedor nao existe.");
+        } else if (nome == null || nome.equals("")) {
+            throw new IllegalArgumentException("Erro no cadastro de produto: nome nao pode ser vazio ou nulo.");
+        } else if (descricao == null || descricao.equals("")) {
+            throw new IllegalArgumentException("Erro no cadastro de produto: nome nao pode ser vazio ou nulo.");
+        } else if (fornecedor == null || fornecedor.equals("")) {
+            throw new IllegalArgumentException("Erro no cadastro de produto: fornecedor nao pode ser vazio ou nulo.");
+        } else if (this.fornecedores.get(fornecedor.toLowerCase()).possuiProduto(produto)) {
+            throw new IllegalArgumentException("Erro nos cadastro de produto: produto ja existe.");
+        } else if (preco < 0) {
+            throw new IllegalArgumentException("Erro no cadastro de produto: preco invalido.");
+        }
+
+        this.fornecedores.get(fornecedor.toLowerCase()).adicionaProduto(produto,nome,descricao,preco);
+
+
+    }
+
+    public String exibeProduto(String nome, String descricao, String fornecedor) {
+        return null;
+
     }
 
 

@@ -1,4 +1,4 @@
-package saga;
+package saga.cliente;
 
 import saga.cliente.Cliente;
 import saga.cliente.ComparadorPeloNomeDoCliente;
