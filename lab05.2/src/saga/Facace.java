@@ -2,6 +2,7 @@ package saga;
 
 public class Facace {
     ClienteController clientes = new ClienteController();
+    FornecedorController fornecedores = new FornecedorController();
 
     public void adicionaCliente(String cpf, String nome, String email, String localizacao) {
         clientes.adicionaCliente(cpf,nome,email,localizacao);
@@ -24,23 +25,23 @@ public class Facace {
     }
 
     public void adicionaFornecedor(String nome, String email, String telefone) {
-        //TODO
+        fornecedores.adicionaFornecedor(nome, email, telefone);
     }
 
     public void exibeFornecedor(String nome) {
-        //TODO
+        fornecedores.exibeFornecedor(nome);
     }
 
     public void exibeFornecedores() {
-        //TODO
+        fornecedores.exibeFornecedores();
     }
 
-    public void editaFornecedor(String nome) {
-        //TODO
+    public void editaFornecedor(String nome, String atributo, String novoValor) {
+        fornecedores.editaFornecedor(nome, atributo, novoValor);
     }
 
     public void removeFornecedor(String nome) {
-        //TODO
+        fornecedores.removeFornecedor(nome);
     }
 
     public void adicionaProduto(String fornecedor, String nome, String descricao, double Preco) {
