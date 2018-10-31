@@ -169,7 +169,7 @@ public class FornecedorController {
             throw new IllegalArgumentException("Erro na remocao de produto: produto nao existe.");
         }
 
-        this.fornecedores;
+        this.fornecedores.get(fornecedor.toLowerCase()).removeProduto(nome, descricao);
     }
 
 
