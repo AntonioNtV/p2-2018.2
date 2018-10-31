@@ -134,6 +134,26 @@ public class FornecedorController {
         return fornecedorList;
     }
 
+    public void editaProduto(String nome, String descricao, String fornecedor, double novoPreco) {
+        ProdutoID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
+
+        if (fornecedor == null || fornecedor.equals("")) {
+            throw new IllegalArgumentException("Erro na edicao de produto: fornecedor nao pode ser vazio ou nulo.");
+        } else if (nome == null || nome.equals("")) {
+            throw new IllegalArgumentException("Erro na edicao de produto: nome nao pode ser vazio ou nulo.");
+        } else if (descricao == null || descricao.equals("")) {
+            throw new IllegalArgumentException("Erro na edicao de produto: descricao nao pode ser vazia ou nula.");
+        } else if (novoPreco < 0) {
+            throw new IllegalArgumentException("Erro na edicao de produto: preco invalido.");
+        } else if (!this.fornecedores.containsKey(fornecedor.toLowerCase())) {
+            throw new IllegalArgumentException("Erro na edicao de produto: fornecedor nao existe.");
+        } else if (!this.fornecedores.get(fornecedor.toLowerCase()).possuiProduto(produto)) {
+            throw new IllegalArgumentException("Erro na edicao de produto: produto nao existe");
+        }
+
+        this.fornecedores.get(fornecedor.toLowerCase()).editaProduto(nome, descricao, novoPreco);
+    }
+
 
 
 

@@ -1,5 +1,6 @@
 package saga.fornecedor;
 
+import saga.Produto.ComparadorPeloToStringProduto;
 import saga.Produto.Produto;
 import saga.Produto.ProdutoID;
 
@@ -96,12 +97,30 @@ public class Fornecedor {
         String produtos = "";
 
         List<Produto> produtosList = new ArrayList<>(this.produtosCadastrados.values());
+        Collections.sort(produtosList, new ComparadorPeloToStringProduto());
 
         for (Produto produto : produtosList) {
             produtos += this.nome + " - " + produto.toString() + " | ";
         }
 
         return produtos;
+    }
+
+    public void editaProduto(String nome, String descricao, double novoPreco) {
+        ProdutoID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
+
+        if (nome == null || nome.equals("")) {
+            throw new IllegalArgumentException("Erro na edicao de produto: nome nao pode ser vazio ou nulo.");
+        } else if (descricao == null || descricao.equals("")) {
+            throw new IllegalArgumentException("Erro na edicao de produto: descricao nao pode ser vazia ou nula.");
+        } else if (novoPreco < 0) {
+            throw new IllegalArgumentException("Erro na edicao de produto: preco invalido.");
+        } else if (!this.possuiProduto(produto)) {
+            throw new IllegalArgumentException("Erro na edicao de produto: produto nao existe.");
+        }
+
+        this.produtosCadastrados.get(produto).editaPreco(novoPreco);
+
     }
 
     @Override
