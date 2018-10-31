@@ -1,5 +1,8 @@
 package saga.cliente;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Cliente {
     private String cpf;
     private String nome;
@@ -28,12 +31,15 @@ public class Cliente {
     }
 
     public void editaCliente(String atributo, String novoValor) {
-        if (!atributo.equals("nome") || !atributo.equals("email") || !atributo.equals("localizacao")) {
-            throw new IllegalArgumentException("Erro na edicao do cliente: atributo nao existe.");
-        } else if (atributo.equals(null) || atributo.equals("")) {
+        final String[] atributosValidos = new String[] {"nome", "email", "localizacao"};
+        final List<String> atributosValidosList = Arrays.asList(atributosValidos);
+
+        if (atributo == null || atributo.equals("")) {
             throw  new IllegalArgumentException("Erro na edicao do cliente: atributo nao pode ser vazio ou nulo.");
-        } else if (novoValor.equals(null) || novoValor.equals("")) {
+        } else if (novoValor == null || novoValor.equals("")) {
             throw new IllegalArgumentException("Erro na edicao do cliente: novo valor nao pode ser vazio ou nulo.");
+        } else if (!atributosValidosList.contains(atributo)) {
+            throw new IllegalArgumentException("Erro na edicao do cliente: atributo nao existe.");
         }
 
         switch (atributo) {
