@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0746518-3707-4ed3-b564-372fdcf06783" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../lab05.2/.idea/libraries/easyaccept.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bibCriptografia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bibCriptografia/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab05.2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab05.2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab05.2/src/saga/fornecedor/FornecedorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab05.2/src/saga/fornecedor/FornecedorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab05.2/lab05.2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab05.2/lab05.2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab05.2/src/saga/Facade.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab05.2/src/saga/Facade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,7 +20,7 @@
     <session id="-1711152769">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.20" value="1" />
@@ -355,7 +357,7 @@
       <updated>1540483239982</updated>
       <workItem from="1540483242213" duration="23657000" />
       <workItem from="1540911204279" duration="3666000" />
-      <workItem from="1540988107440" duration="665000" />
+      <workItem from="1540988107440" duration="975000" />
     </task>
     <task id="LOCAL-00001" summary="Criação dos distribuidores">
       <created>1540484524267</created>
@@ -403,10 +405,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27988000" />
+    <option name="totallyTimeSpent" value="28298000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-6" width="1855" height="1086" extended-state="6" />
+    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25538972" />

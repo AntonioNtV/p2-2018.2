@@ -1,5 +1,6 @@
 package saga;
 
+import easyaccept.EasyAccept;
 import saga.cliente.ClienteController;
 import saga.fornecedor.FornecedorController;
 
@@ -13,8 +14,13 @@ public class Facade {
 
     }
 
-    public void adicionaCliente(String cpf, String nome, String email, String localizacao) {
-        this.clientes.adicionaCliente(cpf,nome,email,localizacao);
+    public static void main(String[] args) {
+        args = new String[] {"saga.Facade", "acceptance_tests/us1.txt"};
+        EasyAccept.main(args);
+    }
+
+    public String adicionaCliente(String cpf, String nome, String email, String localizacao) {
+        return this.clientes.adicionaCliente(cpf,nome,email,localizacao);
     }
 
     public void exibeCliente(String cpf) {

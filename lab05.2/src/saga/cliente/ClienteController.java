@@ -12,7 +12,7 @@ public class ClienteController {
         this.clientes = new HashMap<>();
     }
 
-    public void adicionaCliente(String cpf, String nome, String email, String localizacao) {
+    public String  adicionaCliente(String cpf, String nome, String email, String localizacao) {
         if (nome.equals(null) || nome.equals("")) {
             throw new IllegalArgumentException("Erro no cadastro do cliente: nome nao pode ser vazio ou nulo.");
         } else if (email.equals(null) || email.equals("")) {
@@ -26,6 +26,7 @@ public class ClienteController {
         }
 
         this.clientes.put(cpf, new Cliente(cpf, nome, email, localizacao));
+        return this.clientes.get(cpf).getCpf();
     }
 
     public String exibeCliente(String cpf) {

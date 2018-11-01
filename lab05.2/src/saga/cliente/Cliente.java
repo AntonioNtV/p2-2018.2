@@ -57,6 +57,10 @@ public class Cliente {
         }
     }
 
+    public String getCpf() {
+        return this.cpf;
+    }
+
     @Override
     public String toString() {
         return this.nome + " - " + this.localizacao + " - " + this.email;
