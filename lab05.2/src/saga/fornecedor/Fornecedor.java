@@ -1,12 +1,11 @@
 package saga.fornecedor;
 
-import saga.Produto.ComparadorPeloToStringProduto;
 import saga.Produto.Produto;
 import saga.Produto.ProdutoID;
 
 import java.util.*;
 
-public class Fornecedor {
+public class Fornecedor implements Comparable<Fornecedor>{
     private String nome;
     private String email;
     private String numero;
@@ -32,7 +31,7 @@ public class Fornecedor {
     }
 
     public void editaFornecedor(String atributo, String novoValor) {
-        final String[] atributosValidos = {"email", "numero"};
+        final String[] atributosValidos = {"email", "telefone"};
         final List<String> atributosValidosList = Arrays.asList(atributosValidos);
 
         if (atributo.equals("nome")) {
@@ -50,7 +49,7 @@ public class Fornecedor {
                 this.email = novoValor;
                 break;
 
-            case "numero":
+            case "telefone":
                 this.numero = novoValor;
                 break;
         }
@@ -65,15 +64,15 @@ public class Fornecedor {
     }
 
     public void adicionaProduto(ProdutoID produtoID, String nome, String descricao, double preco) {
-       if (nome == null || nome.equals("")) {
+        if (nome == null || nome.equals("")) {
             throw new IllegalArgumentException("Erro no cadastro de produto: nome nao pode ser vazio ou nulo.");
         } else if (descricao == null || descricao.equals("")) {
-            throw new IllegalArgumentException("Erro no cadastro de produto: nome nao pode ser vazio ou nulo.");
+            throw new IllegalArgumentException("Erro no cadastro de produto: descricao nao pode ser vazia ou nula.");
+        } else if (this.possuiProduto(produtoID)) {
+            throw new IllegalArgumentException("Erro no cadastro de produto: produto ja existe.");
         } else if (preco < 0) {
             throw new IllegalArgumentException("Erro no cadastro de produto: preco invalido.");
-       } else if (this.produtosCadastrados.containsKey(produtoID)) {
-           throw new IllegalArgumentException("Erro nos cadastro de produto: produto ja existe.");
-       }
+        }
 
        this.produtosCadastrados.put(produtoID, new Produto(nome, descricao, preco));
 
@@ -97,7 +96,7 @@ public class Fornecedor {
         String produtos = "";
 
         List<Produto> produtosList = new ArrayList<>(this.produtosCadastrados.values());
-        Collections.sort(produtosList, new ComparadorPeloToStringProduto());
+        Collections.sort(produtosList);
 
         for (Produto produto : produtosList) {
             produtos += this.nome + " - " + produto.toString() + " | ";
@@ -141,5 +140,10 @@ public class Fornecedor {
         @Override
     public String toString() {
         return this.nome + " - " + this.email + " - " + this.numero;
+    }
+
+    @Override
+    public int compareTo(Fornecedor fornecedor) {
+        return this.nome.toLowerCase().compareTo(fornecedor.nome.toLowerCase());
     }
 }

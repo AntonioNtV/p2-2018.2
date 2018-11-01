@@ -33,9 +33,6 @@ public class Main {
         fornecedores.adicionaFornecedor("Helhao", "quiosque@gmail.com", "83 98736-5050");
         fornecedores.adicionaFornecedor("Dona Alba", "alba@gmail.com", "83 99945-1294");
         fornecedores.adicionaFornecedor("Seu Olavo", "olavo@gmail.com", "83 99348-1092");
-        expectError "Erro na edicao do fornecedor: atributo nao pode ser vazio ou nulo." editaFornecedor nome=${fornecedor1} atributo="" novoValor="Lanchonete Marcos"
-        expectError "Erro na edicao do fornecedor: novo valor nao pode ser vazio ou nulo." editaFornecedor nome=${fornecedor1} atributo="email" novoValor=""
-
 
         System.out.println("\nFornecedores - exibeFornecedor");
         System.out.println(fornecedores.exibeFornecedor("Marcos"));

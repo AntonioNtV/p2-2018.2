@@ -1,8 +1,5 @@
 package saga.cliente;
 
-import saga.cliente.Cliente;
-import saga.cliente.ComparadorPeloNomeDoCliente;
-
 import java.util.*;
 
 public class ClienteController {
@@ -38,14 +35,20 @@ public class ClienteController {
 
     public String exibeClientes() {
         String clientes = "";
-        List<Cliente> listaClientes = new ArrayList<>(this.clientes.values());
-        Collections.sort(listaClientes, new ComparadorPeloNomeDoCliente());
+        List<Cliente> listaClientes = this.ordenaPeloNomeCliente();
 
         for (Cliente cliente : listaClientes) {
             clientes += cliente.toString() + " | ";
         }
 
         return clientes.substring(0, clientes.length() - 3);
+    }
+
+    public List<Cliente> ordenaPeloNomeCliente() {
+        List<Cliente> listaClientes = new ArrayList<>(this.clientes.values());
+        Collections.sort(listaClientes);
+
+        return listaClientes;
     }
 
     public void editaCliente(String cpf, String atributo, String novoValor) {

@@ -1,4 +1,4 @@
-package saga;
+package saga.facade;
 
 import easyaccept.EasyAccept;
 import saga.cliente.ClienteController;
@@ -15,9 +15,11 @@ public class Facade {
     }
 
     public static void main(String[] args) {
-        args = new String[] {"saga.Facade", "acceptance_tests/us1.txt", "acceptance_tests/us2.txt", "acceptance_tests/us3.txt"};
+        args = new String[] {"saga.facade.Facade", "acceptance_tests/us1.txt", "acceptance_tests/us2.txt", "acceptance_tests/us3.txt"};
         EasyAccept.main(args);
     }
+
+    //US1
 
     public String adicionaCliente(String cpf, String nome, String email, String localizacao) {
         return this.clientes.adicionaCliente(cpf,nome,email,localizacao);
@@ -39,6 +41,8 @@ public class Facade {
         this.clientes.removeCliente(cpf);
     }
 
+    // US2
+
     public String adicionaFornecedor(String nome, String email, String telefone) {
         return this.fornecedores.adicionaFornecedor(nome, email, telefone);
     }
@@ -59,16 +63,22 @@ public class Facade {
         this.fornecedores.removeFornecedor(nome);
     }
 
+    //US3
+
     public void adicionaProduto(String fornecedor, String nome, String descricao, double preco) {
         this.fornecedores.adicionaProduto(fornecedor, nome, descricao, preco);
     }
 
-    public void exibeProduto(String nome, String descricao, String fornecedor) {
-        this.fornecedores.exibeProduto(nome, descricao, fornecedor);
+    public String exibeProduto(String nome, String descricao, String fornecedor) {
+        return this.fornecedores.exibeProduto(nome, descricao, fornecedor);
     }
 
-    public void exibeProdutos() {
-        this.fornecedores.exibeProdutos();
+    public String exibeProdutos() {
+        return this.fornecedores.exibeProdutos();
+    }
+
+    public String exibeProdutosFornecedor(String fornecedor) {
+        return this.fornecedores.exibeProdutosFornecedor(fornecedor);
     }
 
     public void editaProduto(String nome, String descricao, String fornecedor, double novoPreco) {

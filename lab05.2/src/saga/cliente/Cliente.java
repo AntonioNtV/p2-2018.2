@@ -3,7 +3,7 @@ package saga.cliente;
 import java.util.Arrays;
 import java.util.List;
 
-public class Cliente {
+public class Cliente implements Comparable<Cliente>{
     private String cpf;
     private String nome;
     private String email;
@@ -64,5 +64,10 @@ public class Cliente {
     @Override
     public String toString() {
         return this.nome + " - " + this.localizacao + " - " + this.email;
+    }
+
+    @Override
+    public int compareTo(Cliente cliente) {
+        return this.nome.toLowerCase().compareTo(cliente.nome.toLowerCase());
     }
 }

@@ -1,6 +1,6 @@
 package saga.Produto;
 
-public class Produto {
+public class Produto implements Comparable<Produto>{
     private String nome;
     private String descricao;
     private double preco;
@@ -21,5 +21,10 @@ public class Produto {
     @Override
     public String toString() {
         return this.nome + " - " + this.descricao + " - R$" + String.format("%.2f",this.preco);
+    }
+
+    @Override
+    public int compareTo(Produto produto) {
+        return this.toString().toLowerCase().compareTo(produto.toString().toLowerCase());
     }
 }
