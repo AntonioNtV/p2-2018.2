@@ -15,7 +15,7 @@ public class Facade {
     }
 
     public static void main(String[] args) {
-        args = new String[] {"saga.Facade", "acceptance_tests/us1.txt"};
+        args = new String[] {"saga.Facade", "acceptance_tests/us1.txt", "acceptance_tests/us2.txt", "acceptance_tests/us3.txt"};
         EasyAccept.main(args);
     }
 
@@ -23,15 +23,15 @@ public class Facade {
         return this.clientes.adicionaCliente(cpf,nome,email,localizacao);
     }
 
-    public void exibeCliente(String cpf) {
-        this.clientes.exibeCliente(cpf);
+    public String exibeCliente(String cpf) {
+        return this.clientes.exibeCliente(cpf);
     }
 
-    public void exibeClientes() {
-        this.clientes.exibeClientes();
+    public String exibeClientes() {
+       return this.clientes.exibeClientes();
     }
 
-    public void editacliente(String cpf, String atributo, String novoValor) {
+    public void editaCliente(String cpf, String atributo, String novoValor) {
         this.clientes.editaCliente(cpf, atributo, novoValor);
     }
 
