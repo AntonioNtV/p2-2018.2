@@ -39,16 +39,16 @@ public class Facade {
         this.clientes.removeCliente(cpf);
     }
 
-    public void adicionaFornecedor(String nome, String email, String telefone) {
-        this.fornecedores.adicionaFornecedor(nome, email, telefone);
+    public String adicionaFornecedor(String nome, String email, String telefone) {
+        return this.fornecedores.adicionaFornecedor(nome, email, telefone);
     }
 
-    public void exibeFornecedor(String nome) {
-        this.fornecedores.exibeFornecedor(nome);
+    public String exibeFornecedor(String nome) {
+        return this.fornecedores.exibeFornecedor(nome);
     }
 
-    public void exibeFornecedores() {
-        this.fornecedores.exibeFornecedores();
+    public String exibeFornecedores() {
+        return this.fornecedores.exibeFornecedores();
     }
 
     public void editaFornecedor(String nome, String atributo, String novoValor) {
@@ -76,6 +76,6 @@ public class Facade {
     }
 
     public void removeProduto(String nome, String descricao, String fornecedor) {
-        //TODO
+        this.fornecedores.removeProduto(nome, descricao, fornecedor);
     }
 }

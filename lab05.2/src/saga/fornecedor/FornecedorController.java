@@ -11,7 +11,7 @@ public class FornecedorController {
         this.fornecedores = new HashMap<>();
     }
 
-    public void adicionaFornecedor(String nome, String email, String numero) {
+    public String adicionaFornecedor(String nome, String email, String numero) {
         if (nome == null || nome.equals("")) {
             throw new IllegalArgumentException("Erro no cadastro do fornecedor: nome nao pode ser vazio ou nulo.");
         } else if (email == null || email.equals("")) {
@@ -23,6 +23,7 @@ public class FornecedorController {
         }
 
         this.fornecedores.put(nome.toLowerCase(), new Fornecedor(nome,email,numero));
+        return this.fornecedores.get(nome.toLowerCase()).getNome();
 
     }
 
