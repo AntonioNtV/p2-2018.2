@@ -136,8 +136,20 @@ public class Fornecedor implements Comparable<Fornecedor>{
         this.produtosCadastrados.remove(produto);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Fornecedor that = (Fornecedor) o;
+        return Objects.equals(nome, that.nome);
+    }
 
-        @Override
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome);
+    }
+
+    @Override
     public String toString() {
         return this.nome + " - " + this.email + " - " + this.numero;
     }

@@ -1,5 +1,7 @@
 package saga.Produto;
 
+import java.util.Objects;
+
 public class Produto implements Comparable<Produto>{
     private String nome;
     private String descricao;
@@ -21,6 +23,20 @@ public class Produto implements Comparable<Produto>{
     @Override
     public String toString() {
         return this.nome + " - " + this.descricao + " - R$" + String.format("%.2f",this.preco);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Produto produto = (Produto) o;
+        return Objects.equals(nome, produto.nome) &&
+                Objects.equals(descricao, produto.descricao);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, descricao);
     }
 
     @Override
