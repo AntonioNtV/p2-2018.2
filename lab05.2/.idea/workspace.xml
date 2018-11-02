@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4fe80d46-5323-4ad5-885f-63c16767e5ab" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/saga/Produto/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/saga/Produto/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/saga/cliente/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/saga/cliente/ClienteController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,14 +43,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="11" />
-          <entry key="java" value="14590" />
-          <entry key="txt" value="135" />
+          <entry key="java" value="16089" />
+          <entry key="txt" value="167" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="14590" />
-          <entry key="PLAIN_TEXT" value="146" />
+          <entry key="JAVA" value="16089" />
+          <entry key="PLAIN_TEXT" value="178" />
         </counts>
       </usages-collector>
     </session>
@@ -111,20 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/saga/cliente/ClienteController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1485">
-              <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/saga/Produto/Produto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="523">
-              <caret line="80" column="48" selection-start-line="80" selection-start-column="48" selection-end-line="80" selection-end-column="48" />
+            <state relative-caret-position="358">
+              <caret line="118" column="62" selection-start-line="118" selection-start-column="62" selection-end-line="118" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -172,13 +163,13 @@
         <option value="$PROJECT_DIR$/src/saga/easyAcceptTests/us3.txt" />
         <option value="$PROJECT_DIR$/src/util/Main.java" />
         <option value="$PROJECT_DIR$/src/saga/Facade.java" />
-        <option value="$PROJECT_DIR$/src/saga/cliente/ClienteController.java" />
         <option value="$PROJECT_DIR$/src/saga/facade/Facade.java" />
         <option value="$PROJECT_DIR$/src/saga/cliente/Cliente.java" />
         <option value="$PROJECT_DIR$/src/saga/Produto/ProdutoBase.java" />
         <option value="$PROJECT_DIR$/src/saga/fornecedor/Fornecedor.java" />
         <option value="$PROJECT_DIR$/src/saga/fornecedor/FornecedorController.java" />
         <option value="$PROJECT_DIR$/src/saga/Produto/Produto.java" />
+        <option value="$PROJECT_DIR$/src/saga/cliente/ClienteController.java" />
       </list>
     </option>
   </component>
@@ -250,7 +241,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541198661459" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541199776263" />
     <property name="last_opened_file_path" value="$USER_HOME$/Imagens/LAB5" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -325,7 +316,7 @@
       <option name="presentableId" value="Default" />
       <updated>1540934445821</updated>
       <workItem from="1540934475533" duration="36936000" />
-      <workItem from="1541085983959" duration="14735000" />
+      <workItem from="1541085983959" duration="15849000" />
     </task>
     <task id="LOCAL-00001" summary="novoLab5">
       <created>1540937733774</created>
@@ -453,17 +444,24 @@
       <option name="project" value="LOCAL" />
       <updated>1541198353460</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Documentação do produto">
+      <created>1541198674459</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1541198674460</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51671000" />
+    <option name="totallyTimeSpent" value="52785000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-6" width="1855" height="1086" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.20121615" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20121615" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -537,7 +535,8 @@
     <MESSAGE value="DocumentaçãoCliente" />
     <MESSAGE value="Documentação Fornecedor" />
     <MESSAGE value="Modificação Basica" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modificação Basica" />
+    <MESSAGE value="Documentação do produto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Documentação do produto" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/lab05.2.iml">
@@ -597,13 +596,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/saga/cliente/ClienteController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1485">
-          <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -698,8 +690,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/saga/Produto/Produto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
+        <state relative-caret-position="2508">
           <caret line="80" column="48" selection-start-line="80" selection-start-column="48" selection-end-line="80" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/saga/cliente/ClienteController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="118" column="62" selection-start-line="118" selection-start-column="62" selection-end-line="118" selection-end-column="62" />
         </state>
       </provider>
     </entry>
