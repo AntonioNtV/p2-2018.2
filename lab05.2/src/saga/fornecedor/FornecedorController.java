@@ -95,7 +95,7 @@ public class FornecedorController {
             throw new IllegalArgumentException("Erro no cadastro de produto: preco invalido.");
         }
 
-        this.fornecedores.get(fornecedor.toLowerCase()).adicionaProduto(produto,nome,descricao,preco);
+        this.fornecedores.get(fornecedor.toLowerCase()).adicionaProduto(nome,descricao,preco);
 
 
     }

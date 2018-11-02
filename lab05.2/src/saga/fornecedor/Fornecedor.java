@@ -104,12 +104,13 @@ public class Fornecedor implements Comparable<Fornecedor>{
     /**
      * Criado para adicionar um produto no Conjunto de produto do Fornecedor.
      *
-     * @param produtoID Identificador do Produto
      * @param nome Nome do Produto
      * @param descricao Descrição do Produto
      * @param preco Preço do Produto
      */
-    public void adicionaProduto(ProdutoID produtoID, String nome, String descricao, double preco) {
+    public void adicionaProduto(String nome, String descricao, double preco) {
+        ProdutoID produtoID = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
+
         if (nome == null || nome.equals("")) {
             throw new IllegalArgumentException("Erro no cadastro de produto: nome nao pode ser vazio ou nulo.");
         } else if (descricao == null || descricao.equals("")) {
