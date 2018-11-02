@@ -5,12 +5,36 @@ import saga.Produto.ProdutoID;
 
 import java.util.*;
 
+/**
+ * Criado para Represetar um Fornecedor do SAGA.
+ * Um fornedor possui um Nome, Email, Numero e um Conjunto de produtos. O fornecedor é identificado unicamente pelo Nome.
+ * @author Antonio Bertino de Vasconcelos Cabral Neto - UFCG - 2018.
+ */
 public class Fornecedor implements Comparable<Fornecedor>{
+    /**
+     * Representação do Nome do Fornecedor (Identificador Unico)
+     */
     private String nome;
+    /**
+     * Representação do email do Fornecedor,
+     */
     private String email;
+    /**
+     * Representação do número do Fornecedor.
+     */
     private String numero;
+    /**
+     * Representação dos produtos cadastrados pelo Fornecedor. Possui como chave o ProdutoID q é uma classe que cria uma identifcação única com base no nome e descrição do produto.
+     */
     private Map<ProdutoID, Produto> produtosCadastrados;
 
+    /**
+     * Constroi um Fornecedor
+     *
+     * @param nome Representação do nome do Fornecedor
+     * @param email Representação do email do Fornecedor
+     * @param numero Representação do númer do Fornecedor
+     */
     public Fornecedor(String nome, String email, String numero) {
         if (nome == null || nome.equals("")) {
             throw new IllegalArgumentException("Erro no cadastro do fornecedor: nome nao pode ser vazio ou nulo.");
@@ -26,10 +50,19 @@ public class Fornecedor implements Comparable<Fornecedor>{
         this.produtosCadastrados = new HashMap<>();
     }
 
+    /**
+     * Criado para retornar o nome do Fornecedor.
+     * @return String com o nome do fornecedor
+     */
     public String getNome() {
         return this.nome;
     }
 
+    /**
+     * Criado para editar algum atributo do Fornecedor. Os únicos atributos que podem ser editados são o Email e o telefone.
+     * @param atributo Qual atributo será editado. Poderá ser email ou o telefone.
+     * @param novoValor Representação do valor que substituira o valor que o atributo indicara.
+     */
     public void editaFornecedor(String atributo, String novoValor) {
         final String[] atributosValidos = {"email", "telefone"};
         final List<String> atributosValidosList = Arrays.asList(atributosValidos);
@@ -55,6 +88,11 @@ public class Fornecedor implements Comparable<Fornecedor>{
         }
     }
 
+    /**
+     * Criado para verificar a existência de algum produto cadastrado.
+     * @param produto Representação da identificação de um produto.
+     * @return Boolean com true para existe e false para não existe.
+     */
     public boolean possuiProduto(ProdutoID produto) {
         if (this.produtosCadastrados.containsKey(produto)) {
             return true;
@@ -63,6 +101,14 @@ public class Fornecedor implements Comparable<Fornecedor>{
         }
     }
 
+    /**
+     * Criado para adicionar um produto no Conjunto de produto do Fornecedor.
+     *
+     * @param produtoID Identificador do Produto
+     * @param nome Nome do Produto
+     * @param descricao Descrição do Produto
+     * @param preco Preço do Produto
+     */
     public void adicionaProduto(ProdutoID produtoID, String nome, String descricao, double preco) {
         if (nome == null || nome.equals("")) {
             throw new IllegalArgumentException("Erro no cadastro de produto: nome nao pode ser vazio ou nulo.");
@@ -78,6 +124,13 @@ public class Fornecedor implements Comparable<Fornecedor>{
 
     }
 
+    /**
+     * Criado para retornar a representação de um produto especifico
+     *
+     * @param nome - nome de produto
+     * @param descricao - descricao do produto
+     * @return uma String com a representação de um produto
+     */
     public String exibeProduto(String nome, String descricao) {
         ProdutoID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
 
@@ -92,6 +145,11 @@ public class Fornecedor implements Comparable<Fornecedor>{
         return this.produtosCadastrados.get(produto).toString();
     }
 
+    /**
+     * Criado para retornar a representação de todos os produtos do fornecedor
+     *
+     * @return String com todos os produtos do fornecedor.
+     */
     public String exibeProdutos() {
         String produtos = "";
 
@@ -105,6 +163,13 @@ public class Fornecedor implements Comparable<Fornecedor>{
         return produtos;
     }
 
+    /**
+     * Criado para modificar o preço de um determinado produto
+     *
+     * @param nome - String com nome do produto
+     * @param descricao - String com a descriçao do produto.
+     * @param novoPreco - Double com o preço do produto.
+     */
     public void editaProduto(String nome, String descricao, double novoPreco) {
         ProdutoID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
 
@@ -122,6 +187,12 @@ public class Fornecedor implements Comparable<Fornecedor>{
 
     }
 
+    /**
+     * Criado para remover um determinado produto
+     *
+     * @param nome String com nome do produto
+     * @param descricao String com a pdescrição do produto
+     */
     public void removeProduto(String nome, String descricao) {
         ProdutoID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
 
@@ -136,6 +207,9 @@ public class Fornecedor implements Comparable<Fornecedor>{
         this.produtosCadastrados.remove(produto);
     }
 
+    /**
+     * Equals Baseado no Nome do fornecedor
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -144,16 +218,26 @@ public class Fornecedor implements Comparable<Fornecedor>{
         return Objects.equals(nome, that.nome);
     }
 
+    /**
+     * Hashcode baseado no nome do Fornecedor.
+     */
     @Override
     public int hashCode() {
         return Objects.hash(nome);
     }
 
+    /**
+     * Representação textual do Fornecedor.
+     * @return String no formato "nome - email - numero"
+     */
     @Override
     public String toString() {
         return this.nome + " - " + this.email + " - " + this.numero;
     }
 
+    /**
+     * Comparador baseado no nome do Fornecedor
+     */
     @Override
     public int compareTo(Fornecedor fornecedor) {
         return this.nome.toLowerCase().compareTo(fornecedor.nome.toLowerCase());

@@ -129,6 +129,9 @@ public class Cliente implements Comparable<Cliente>{
         return this.nome + " - " + this.localizacao + " - " + this.email;
     }
 
+    /**
+     * CompareTo baseado no nome do cliente.
+     */
     @Override
     public int compareTo(Cliente cliente) {
         return this.nome.toLowerCase().compareTo(cliente.nome.toLowerCase());
