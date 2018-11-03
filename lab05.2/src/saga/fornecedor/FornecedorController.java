@@ -4,13 +4,32 @@ import saga.Produto.ProdutoID;
 
 import java.util.*;
 
+/**
+ * Criado para ser o controlador de fornecedores.
+ *
+ * @author Antonio Bertino de Vasconcelos Cabral Neto
+ */
 public class FornecedorController {
+    /**
+     * Conjunto de fornecedores. Com nome do fornecedor como chave do mapa.
+     */
     private Map<String, Fornecedor> fornecedores;
 
+    /**
+     * Criado para inicializar o controlador de fornecedores.
+     */
     public FornecedorController() {
         this.fornecedores = new HashMap<>();
     }
 
+    /**
+     * Criado para adicionar um Fornecedor ao Sistema.
+     *
+     * @param nome String com nome do fornecedor.
+     * @param email String com email do fornecedor.
+     * @param numero String com o número do fornecedor.
+     * @return String com o nome do fornecedor.
+     */
     public String adicionaFornecedor(String nome, String email, String numero) {
         if (nome == null || nome.equals("")) {
             throw new IllegalArgumentException("Erro no cadastro do fornecedor: nome nao pode ser vazio ou nulo.");
@@ -27,6 +46,11 @@ public class FornecedorController {
 
     }
 
+    /**
+     * Criado para retornar String com a representação textual de algum fornecedor espeficio.
+     * @param nome do fornecedor o qual se quer a representação textual.
+     * @return String com a representação textual de algum fornecedor específico.
+     */
     public String exibeFornecedor(String nome) {
         if (!this.fornecedores.containsKey(nome.toLowerCase())) {
             throw new IllegalArgumentException("Erro na exibicao do fornecedor: fornecedor nao existe.");
@@ -35,6 +59,11 @@ public class FornecedorController {
         return this.fornecedores.get(nome.toLowerCase()).toString();
     }
 
+    /**
+     * Criado para retornar a representação de todos os fornecedores cadastrados no Sistema.
+     *
+     * @return String com todos os fornecedores cadastrados no sistema, ordenados por ordem afalbética.
+     */
     public String exibeFornecedores() {
         String fornecedores = "";
 
@@ -47,6 +76,13 @@ public class FornecedorController {
         return fornecedores.substring(0, fornecedores.length()- 3);
     }
 
+    /**
+     * Criado para editar os atributos de algum fornecedor.
+     *
+     * @param nome String com o nome do fornecedor que vai ser editado.
+     * @param atributo String com o atributo que se deseja ser editado.
+     * @param novoValor String com o novo valor a ser editado.
+     */
     public void editaFornecedor(String nome, String atributo, String novoValor) {
         final String[] atributosValidos = {"email", "telefone"};
         final List<String> atributosValidosList = Arrays.asList(atributosValidos);
@@ -66,6 +102,11 @@ public class FornecedorController {
         this.fornecedores.get(nome.toLowerCase()).editaFornecedor(atributo, novoValor);
     }
 
+    /**
+     * Criado para remover um Fornecedor do Sistema.
+     *
+     * @param nome String com o nome do fornecedor que será removido.
+     */
     public void removeFornecedor(String nome) {
         if (!this.fornecedores.containsKey(nome.toLowerCase())) {
             throw new IllegalArgumentException("Erro na remocao do fornecedor: nome do fornecedor nao pode ser vazio.");
@@ -77,6 +118,14 @@ public class FornecedorController {
         this.fornecedores.remove(nome.toLowerCase());
     }
 
+    /**
+     * Criado para adicionar algum produto a algum fornecedor
+     *
+     * @param fornecedor String com nome do fornecedor.
+     * @param nome String com o nome do produto.
+     * @param descricao String com a descrição do produto.
+     * @param preco double com o preço do produto.
+     */
     public void adicionaProduto(String fornecedor, String nome, String descricao, double preco) {
         ProdutoID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
 
@@ -100,6 +149,14 @@ public class FornecedorController {
 
     }
 
+    /**
+     * Criado para retornar a representação textual de algum produto em específico.
+     *
+     * @param nome String com o nome do produto.
+     * @param descricao String com a descrição do produto.
+     * @param fornecedor String com o fornecedor do produto.
+     * @return
+     */
     public String exibeProduto(String nome, String descricao, String fornecedor) {
         ProdutoID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
 
@@ -119,6 +176,11 @@ public class FornecedorController {
 
     }
 
+    /**
+     * Criado para retornar a representação textual de todos os produtos cadastrados no sistema.
+     *
+     * @return String com todos os produtos cadastrados no sistema, em ordem alfabética.
+     */
     public String exibeProdutos() {
         String produtos = "";
         List<Fornecedor> fornecedorList = this.ordenaFornecedorPeloNome();
@@ -130,6 +192,12 @@ public class FornecedorController {
         return produtos.substring(0, produtos.length() - 3);
     }
 
+    /**
+     * Criado para retornar a representação de todos os produtos de um determinado Fornecedor.
+     *
+     * @param fornecedor String com o nome do fornecedor.
+     * @return String com todos os produtos de um determinado fornecedor.
+     */
     public String exibeProdutosFornecedor(String fornecedor) {
         String produtos = "";
 
@@ -143,6 +211,10 @@ public class FornecedorController {
         return produtos.substring(0, produtos.length() - 3);
     }
 
+    /**
+     * Criado para ordenar uma lista de fornecedores com base no nome dos fornecedores.
+     * @return List do tipo fornecedor ordenada pelo nome do fornecedor.
+     */
     private List<Fornecedor> ordenaFornecedorPeloNome() {
         List<Fornecedor> fornecedorList = new ArrayList<>(this.fornecedores.values());
         Collections.sort(fornecedorList);
@@ -150,6 +222,14 @@ public class FornecedorController {
         return fornecedorList;
     }
 
+    /**
+     * Criado para editar o preço de um determinado produto de um determinado fornecedor.
+     *
+     * @param nome String com nome do produto a ser editado.
+     * @param descricao String com a descrição do produto a ser editado.
+     * @param fornecedor String com nome do fornecedor que possui o produto.
+     * @param novoPreco double com novo preço do prdduto.
+     */
     public void editaProduto(String nome, String descricao, String fornecedor, double novoPreco) {
         ProdutoID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
 
@@ -170,6 +250,13 @@ public class FornecedorController {
         this.fornecedores.get(fornecedor.toLowerCase()).editaProduto(nome, descricao, novoPreco);
     }
 
+    /**
+     * Criado para Remover algum produto de algum determinado fornecedor
+     *
+     * @param nome String com o nome do produto a ser removido.
+     * @param descricao String com descrição do produto a ser removido.
+     * @param fornecedor String com nome do fornecedor que possui o produto a ser removido.
+     */
     public void removeProduto(String nome, String descricao, String fornecedor) {
         ProdutoID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
 
