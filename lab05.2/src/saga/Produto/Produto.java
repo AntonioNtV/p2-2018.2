@@ -1,6 +1,6 @@
 package saga.Produto;
 
-import java.util.Objects;
+import saga.Produto.CalculoDePreco.TipoDeCalculo;
 
 /**
  * Representação de um Produto.
@@ -27,22 +27,11 @@ public class Produto extends ProdutoAbstract {
      *
      * @param novoPreco double com o novo valor do produto.
      */
-    public void editaPreco(double novoPreco) {
+    public void alteraValor(double novoPreco) {
         this.tipoDeCalculo.alterarValor(novoPreco);
     }
 
     public double getPreco() {
         return this.tipoDeCalculo.getPreco();
     }
-
-    /**
-     * Criado para retornar representação textual do produto.
-     *
-     * @return String no formato "Nome - descrição - R$preco"
-     */
-    @Override
-    public String toString() {
-        return this.nome + " - " + this.descricao + " - R$" + String.format("%.2f",this.getPreco());
-    }
-
 }

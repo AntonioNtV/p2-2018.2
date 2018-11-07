@@ -1,6 +1,9 @@
 package saga.fornecedor;
 
+import saga.Produto.CalculoDePreco.CalculoComum;
+import saga.Produto.CalculoDePreco.TipoDeCalculo;
 import saga.Produto.Produto;
+import saga.Produto.ProdutoAbstract;
 import saga.Produto.ProdutoID;
 
 import java.util.*;
@@ -26,7 +29,7 @@ public class Fornecedor implements Comparable<Fornecedor>{
     /**
      * Representação dos produtos cadastrados pelo Fornecedor. Possui como chave o ProdutoID q é uma classe que cria uma identifcação única com base no nome e descrição do produto.
      */
-    private Map<ProdutoID, Produto> produtosCadastrados;
+    private Map<ProdutoID, ProdutoAbstract> produtosCadastrados;
 
     /**
      * Constroi um Fornecedor
@@ -121,7 +124,8 @@ public class Fornecedor implements Comparable<Fornecedor>{
             throw new IllegalArgumentException("Erro no cadastro de produto: preco invalido.");
         }
 
-       this.produtosCadastrados.put(produtoID, new Produto(nome, descricao, preco));
+        TipoDeCalculo tipoDeCalculoSimples = new CalculoComum(preco);
+       this.produtosCadastrados.put(produtoID, new Produto(nome, descricao, tipoDeCalculoSimples));
 
     }
 
@@ -154,10 +158,10 @@ public class Fornecedor implements Comparable<Fornecedor>{
     public String exibeProdutos() {
         String produtos = "";
 
-        List<Produto> produtosList = new ArrayList<>(this.produtosCadastrados.values());
+        List<ProdutoAbstract> produtosList = new ArrayList<>(this.produtosCadastrados.values());
         Collections.sort(produtosList);
 
-        for (Produto produto : produtosList) {
+        for (ProdutoAbstract produto : produtosList) {
             produtos += this.nome + " - " + produto.toString() + " | ";
         }
 
@@ -184,7 +188,7 @@ public class Fornecedor implements Comparable<Fornecedor>{
             throw new IllegalArgumentException("Erro na edicao de produto: produto nao existe.");
         }
 
-        this.produtosCadastrados.get(produto).editaPreco(novoPreco);
+        this.produtosCadastrados.get(produto).alteraValor(novoPreco);
 
     }
 

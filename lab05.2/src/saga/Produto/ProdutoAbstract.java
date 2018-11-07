@@ -8,7 +8,7 @@ import java.util.Objects;
  *
  * @author Antonio Bertino de Vasconcelos Cabral Neto - UFCG - 2018
  */
-public class ProdutoAbstract implements Comparable<ProdutoAbstract>{
+public abstract class ProdutoAbstract implements Comparable<ProdutoAbstract>{
     /**
      * String com nome do produto.
      */
@@ -48,6 +48,24 @@ public class ProdutoAbstract implements Comparable<ProdutoAbstract>{
     @Override
     public int hashCode() {
         return Objects.hash(nome, descricao);
+    }
+
+    /**
+     * Criado para retornar o Preço do Produto
+     * @return double com valor do produto.
+     */
+    public abstract double getPreco();
+
+    public abstract void alteraValor(double novoValor);
+
+    /**
+     * Criado para retornar representação textual do produto.
+     *
+     * @return String no formato "Nome - descrição - R$preco"
+     */
+    @Override
+    public String toString() {
+        return this.nome + " - " + this.descricao + " - R$" + String.format("%.2f",this.getPreco());
     }
 
     /**

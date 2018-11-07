@@ -1,4 +1,6 @@
-package saga.Produto;
+package saga.Produto.CalculoDePreco;
+
+import saga.Produto.Produto;
 
 import java.util.Set;
 
