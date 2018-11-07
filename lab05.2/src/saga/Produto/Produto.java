@@ -8,31 +8,18 @@ import java.util.Objects;
  *
  * @author Antonio Bertino de Vasconcelos Cabral Neto - UFCG - 2018
  */
-public class Produto implements Comparable<Produto>{
-    /**
-     * String com nome do produto.
-     */
-    private String nome;
-    /**
-     * String com descrição do produto.
-     */
-    private String descricao;
-    /**
-     * Double com preço do produto
-     */
-    private double preco;
+public class Produto extends ProdutoAbstract {
+    private TipoDeCalculo tipoDeCalculo;
 
     /**
      * Constroi um produto
      *
      * @param nome String com o nome do produto
      * @param descricao String com descricao do produto
-     * @param preco double com preço do produto.
      */
-    public Produto(String nome, String descricao, double preco) {
-        this.nome = nome;
-        this.descricao = descricao;
-        this.preco = preco;
+    public Produto(String nome, String descricao, TipoDeCalculo tipoDeCalculo) {
+        super(nome, descricao);
+        this.tipoDeCalculo = tipoDeCalculo;
     }
 
     /**
@@ -41,10 +28,11 @@ public class Produto implements Comparable<Produto>{
      * @param novoPreco double com o novo valor do produto.
      */
     public void editaPreco(double novoPreco) {
-        if (novoPreco < 0) {
-            throw new IllegalArgumentException("Erro na edicao de produto: preco invalido.");
-        }
-        this.preco = novoPreco;
+        this.tipoDeCalculo.alterarValor(novoPreco);
+    }
+
+    public double getPreco() {
+        return this.tipoDeCalculo.getPreco();
     }
 
     /**
@@ -54,34 +42,7 @@ public class Produto implements Comparable<Produto>{
      */
     @Override
     public String toString() {
-        return this.nome + " - " + this.descricao + " - R$" + String.format("%.2f",this.preco);
+        return this.nome + " - " + this.descricao + " - R$" + String.format("%.2f",this.getPreco());
     }
 
-    /**
-     * Equals baseado no nome e na descrição do produto
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Produto produto = (Produto) o;
-        return Objects.equals(nome, produto.nome) &&
-                Objects.equals(descricao, produto.descricao);
-    }
-
-    /**
-     * HashCode baseado no nome e na descrição do produto.
-     */
-    @Override
-    public int hashCode() {
-        return Objects.hash(nome, descricao);
-    }
-
-    /**
-     * compareTo baseado no toString do produto.
-     */
-    @Override
-    public int compareTo(Produto produto) {
-        return this.toString().toLowerCase().compareTo(produto.toString().toLowerCase());
-    }
 }
