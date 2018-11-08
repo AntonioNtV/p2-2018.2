@@ -145,8 +145,38 @@ public class FornecedorController {
         }
 
         this.fornecedores.get(fornecedor.toLowerCase()).adicionaProduto(nome,descricao,preco);
+    }
 
+    public void adicionaCombo(String fornecedor, String nome, String descricao, double fator, String produtos) {
+        ProdutoID comboId = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
+        String[] produtosEDescricao = this.listaProdutosString(produtos);
 
+        if (fornecedor == null || fornecedor.equals("")) {
+            throw new IllegalArgumentException("Erro no cadastro de combo: fornecedor nao pode ser vazio ou nulo.");
+        } else if (nome == null || nome.equals("")) {
+            throw new IllegalArgumentException("Erro no cadastro de combo: nome nao pode ser vazio ou nulo.");
+        } else if (descricao == null || descricao.equals("")) {
+            throw new IllegalArgumentException("Erro no cadastro de combo: descricao nao pode ser vazia ou nula.");
+        } else if (fator < 0 || fator >= 1) {
+            throw new IllegalArgumentException("Erro no cadastro de combo: fator invalido.");
+        } else if (this.fornecedores.get(fornecedor.toLowerCase()).possuiProduto(comboId)) {
+            throw new IllegalArgumentException("Erro no cadastro de combo: combo ja existe.");
+        } else if (!this.fornecedores.containsKey(fornecedor.toLowerCase())) {
+            throw new IllegalArgumentException("Erro no cadastro de combo: fornecedor nao existe.");
+        } else if (produtos == null || produtos.equals("")) {
+            throw new IllegalArgumentException("Erro no cadastro de combo: combo deve ter produtos.");
+        }
+
+        for (int i = 0; i < produtosEDescricao.length; i += 2) {
+            ProdutoID produto = new ProdutoID(produtosEDescricao[i].toLowerCase().trim(), produtosEDescricao[i + 1].toLowerCase().trim());
+
+            if (!this.fornecedores.get(fornecedor.toLowerCase()).possuiProduto(produto)) {
+                throw new IllegalArgumentException("Erro no cadastro de combo: produto nao existe.");
+            } else if (!this.fornecedores.get(fornecedor.toLowerCase()).getProduto(produto).isCombavel()) {
+                throw new IllegalArgumentException("Erro no cadastro de combo: um combo nao pode possuir combos na lista de produtos.");
+            }
+        }
+        this.fornecedores.get(fornecedor.toLowerCase()).adicionaCombo(nome, descricao, fator, produtos);
     }
 
     /**
@@ -273,5 +303,10 @@ public class FornecedorController {
         }
 
         this.fornecedores.get(fornecedor.toLowerCase()).removeProduto(nome, descricao);
+    }
+
+    private String[] listaProdutosString(String produtos) {
+        String[] listaProdutos = produtos.replace(", "," - ").split(" - ");
+        return listaProdutos;
     }
 }

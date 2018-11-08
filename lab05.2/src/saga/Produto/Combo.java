@@ -11,8 +11,8 @@ public class Combo extends ProdutoAbstract {
      * @param nome      String com o nome do produto
      * @param descricao String com descricao do produto
      */
-    public Combo(String nome, String descricao, TipoDeCalculo tipoDeCalculo) {
-        super(nome, descricao);
+    public Combo(String nome, String descricao, boolean combavel, TipoDeCalculo tipoDeCalculo) {
+        super(nome, descricao, combavel);
         this.tipoDeCalculo = tipoDeCalculo;
     }
 

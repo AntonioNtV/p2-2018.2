@@ -18,6 +18,8 @@ public abstract class ProdutoAbstract implements Comparable<ProdutoAbstract>{
      */
     protected String descricao;
 
+    protected boolean combavel;
+
 
     /**
      * Constroi um produto
@@ -25,9 +27,23 @@ public abstract class ProdutoAbstract implements Comparable<ProdutoAbstract>{
      * @param nome String com o nome do produto
      * @param descricao String com descricao do produto
      */
-    public ProdutoAbstract(String nome, String descricao) {
+    public ProdutoAbstract(String nome, String descricao, boolean combavel) {
         this.nome = nome;
         this.descricao = descricao;
+        this.combavel = combavel;
+    }
+
+
+    /**
+     * Criado para retornar o Preço do Produto
+     * @return double com valor do produto.
+     */
+    public abstract double getPreco();
+
+    public abstract void alteraValor(double novoValor);
+
+    public boolean isCombavel() {
+        return this.combavel;
     }
 
     /**
@@ -49,14 +65,6 @@ public abstract class ProdutoAbstract implements Comparable<ProdutoAbstract>{
     public int hashCode() {
         return Objects.hash(nome, descricao);
     }
-
-    /**
-     * Criado para retornar o Preço do Produto
-     * @return double com valor do produto.
-     */
-    public abstract double getPreco();
-
-    public abstract void alteraValor(double novoValor);
 
     /**
      * Criado para retornar representação textual do produto.

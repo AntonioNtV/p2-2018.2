@@ -88,4 +88,15 @@ public class Facade {
     public void removeProduto(String nome, String descricao, String fornecedor) {
         this.fornecedores.removeProduto(nome, descricao, fornecedor);
     }
+
+    // US4
+
+    public void adicionaCombo(String fornecedor, String nome, String descricao, double fator, String produtos) {
+        //TODO
+    }
+
+    public void editaCombo(String nome, String descricao, String fornecedor, double novoFator) {
+        //TODO
+    }
+
 }

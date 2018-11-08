@@ -1,7 +1,9 @@
 package saga.fornecedor;
 
+import saga.Produto.CalculoDePreco.CalculoCombo;
 import saga.Produto.CalculoDePreco.CalculoComum;
 import saga.Produto.CalculoDePreco.TipoDeCalculo;
+import saga.Produto.Combo;
 import saga.Produto.Produto;
 import saga.Produto.ProdutoAbstract;
 import saga.Produto.ProdutoID;
@@ -125,8 +127,45 @@ public class Fornecedor implements Comparable<Fornecedor>{
         }
 
         TipoDeCalculo tipoDeCalculoSimples = new CalculoComum(preco);
-       this.produtosCadastrados.put(produtoID, new Produto(nome, descricao, tipoDeCalculoSimples));
+        this.produtosCadastrados.put(produtoID, new Produto(nome, descricao, true, tipoDeCalculoSimples));
 
+    }
+
+    public void adicionaCombo(String nome, String descricao, double fator, String produtos) {
+        ProdutoID comboId = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
+        String[] produtosEDescricao = this.listaProdutosString(produtos);
+
+        if (nome == null || nome.equals("")) {
+            throw new IllegalArgumentException("Erro no cadastro de combo: nome nao pode ser vazio ou nulo.");
+        } else if (descricao == null || descricao.equals("")) {
+            throw new IllegalArgumentException("Erro no cadastro de combo: descricao nao pode ser vazia ou nula.");
+        } else if (fator < 0 || fator >= 1) {
+            throw new IllegalArgumentException("Erro no cadastro de combo: fator invalido.");
+        } else if (this.possuiProduto(comboId)) {
+            throw new IllegalArgumentException("Erro no cadastro de combo: combo ja existe.");
+        } else if (produtos == null || produtos.equals("")) {
+            throw new IllegalArgumentException("Erro no cadastro de combo: combo deve ter produtos.");
+        }
+
+        for (int i = 0; i < produtosEDescricao.length; i += 2) {
+            ProdutoID produto = new ProdutoID(produtosEDescricao[i].toLowerCase().trim(), produtosEDescricao[i + 1].toLowerCase().trim());
+
+            if (!this.possuiProduto(produto)) {
+                throw new IllegalArgumentException("Erro no cadastro de combo: produto nao existe.");
+            } else if (!this.getProduto(produto).isCombavel()) {
+                throw new IllegalArgumentException("Erro no cadastro de combo: um combo nao pode possuir combos na lista de produtos.");
+            }
+        }
+
+        TipoDeCalculo tipoDeCalculoCombo = new CalculoCombo(fator);
+
+        this.produtosCadastrados.put(comboId, new Combo(nome, descricao, false, tipoDeCalculoCombo));
+
+    }
+
+    private String[] listaProdutosString(String produtos) {
+        String[] listaProdutos = produtos.replace(", "," - ").split(" - ");
+        return listaProdutos;
     }
 
     /**
@@ -166,6 +205,10 @@ public class Fornecedor implements Comparable<Fornecedor>{
         }
 
         return produtos;
+    }
+
+    public ProdutoAbstract getProduto(ProdutoID produto) {
+        return this.produtosCadastrados.get(produto);
     }
 
     /**
