@@ -1,12 +1,13 @@
 package saga.fornecedor;
 
-import saga.Produto.CalculoDePreco.CalculoCombo;
-import saga.Produto.CalculoDePreco.CalculoComum;
-import saga.Produto.CalculoDePreco.TipoDeCalculo;
+import saga.Calculadores.CalculoCombo;
+import saga.Calculadores.CalculoComum;
+import saga.Calculadores.TipoDeCalculo;
 import saga.Produto.Combo;
 import saga.Produto.Produto;
 import saga.Produto.ProdutoAbstract;
-import saga.Produto.ProdutoID;
+import saga.identifiers.ID;
+import saga.identifiers.ProdutoID;
 
 import java.util.*;
 
@@ -31,7 +32,7 @@ public class Fornecedor implements Comparable<Fornecedor>{
     /**
      * Representação dos produtos cadastrados pelo Fornecedor. Possui como chave o ProdutoID q é uma classe que cria uma identifcação única com base no nome e descrição do produto.
      */
-    private Map<ProdutoID, ProdutoAbstract> produtosCadastrados;
+    private Map<ID, ProdutoAbstract> produtosCadastrados;
 
     /**
      * Constroi um Fornecedor
@@ -98,7 +99,7 @@ public class Fornecedor implements Comparable<Fornecedor>{
      * @param produto Representação da identificação de um produto.
      * @return Boolean com true para existe e false para não existe.
      */
-    public boolean possuiProduto(ProdutoID produto) {
+    public boolean possuiProduto(ID produto) {
         if (this.produtosCadastrados.containsKey(produto)) {
             return true;
         } else {
@@ -114,7 +115,7 @@ public class Fornecedor implements Comparable<Fornecedor>{
      * @param preco Preço do Produto
      */
     public void adicionaProduto(String nome, String descricao, double preco) {
-        ProdutoID produtoID = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
+        ID produtoID = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
 
         if (nome == null || nome.equals("")) {
             throw new IllegalArgumentException("Erro no cadastro de produto: nome nao pode ser vazio ou nulo.");
@@ -139,7 +140,7 @@ public class Fornecedor implements Comparable<Fornecedor>{
             throw new IllegalArgumentException("Erro no cadastro de combo: nome nao pode ser vazio ou nulo.");
         } else if (descricao == null || descricao.equals("")) {
             throw new IllegalArgumentException("Erro no cadastro de combo: descricao nao pode ser vazia ou nula.");
-        } else if (fator < 0 || fator >= 1) {
+        } else if (fator <= 0 || fator >= 1) {
             throw new IllegalArgumentException("Erro no cadastro de combo: fator invalido.");
         } else if (this.possuiProduto(comboId)) {
             throw new IllegalArgumentException("Erro no cadastro de combo: combo ja existe.");
@@ -147,20 +148,40 @@ public class Fornecedor implements Comparable<Fornecedor>{
             throw new IllegalArgumentException("Erro no cadastro de combo: combo deve ter produtos.");
         }
 
+        Set<ProdutoAbstract> produtoParaCombo = new HashSet<>();
         for (int i = 0; i < produtosEDescricao.length; i += 2) {
-            ProdutoID produto = new ProdutoID(produtosEDescricao[i].toLowerCase().trim(), produtosEDescricao[i + 1].toLowerCase().trim());
+            String nomeProduto = produtosEDescricao[i].toLowerCase().trim();
+            String descricaoProduto = produtosEDescricao[i + 1].toLowerCase().trim();
+            ID produto = new ProdutoID(nomeProduto, descricaoProduto);
 
             if (!this.possuiProduto(produto)) {
                 throw new IllegalArgumentException("Erro no cadastro de combo: produto nao existe.");
             } else if (!this.getProduto(produto).isCombavel()) {
                 throw new IllegalArgumentException("Erro no cadastro de combo: um combo nao pode possuir combos na lista de produtos.");
             }
+
+            produtoParaCombo.add(this.produtosCadastrados.get(produto));
         }
 
-        TipoDeCalculo tipoDeCalculoCombo = new CalculoCombo(fator);
-
+        TipoDeCalculo tipoDeCalculoCombo = new CalculoCombo(fator, produtoParaCombo);
         this.produtosCadastrados.put(comboId, new Combo(nome, descricao, false, tipoDeCalculoCombo));
 
+    }
+
+    public void editaCombo(String nome, String descricao, double novoFator) {
+        ID comboID = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
+
+        if (nome == null || nome.equals("")) {
+            throw new IllegalArgumentException("Erro na edicao de combo: nome nao pode ser vazio ou nulo.");
+        } else if (descricao == null || descricao.equals("")) {
+            throw new IllegalArgumentException("Erro na edicao de combo: descricao nao pode ser vazia ou nula.");
+        } else if (novoFator <= 0 || novoFator >= 1) {
+            throw new IllegalArgumentException("Erro na edicao de combo: fator invalido.");
+        } else if (!this.possuiProduto(comboID)) {
+            throw new IllegalArgumentException("Erro na edicao de combo: produto nao existe.");
+        }
+
+        this.produtosCadastrados.get(comboID).alteraValor(novoFator);
     }
 
     private String[] listaProdutosString(String produtos) {
@@ -176,7 +197,7 @@ public class Fornecedor implements Comparable<Fornecedor>{
      * @return uma String com a representação de um produto
      */
     public String exibeProduto(String nome, String descricao) {
-        ProdutoID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
+        ID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
 
         if (nome == null || nome.equals("")) {
             throw new IllegalArgumentException("Erro na exibicao de produto: nome nao pode ser vazio ou nulo.");
@@ -207,7 +228,7 @@ public class Fornecedor implements Comparable<Fornecedor>{
         return produtos;
     }
 
-    public ProdutoAbstract getProduto(ProdutoID produto) {
+    public ProdutoAbstract getProduto(ID produto) {
         return this.produtosCadastrados.get(produto);
     }
 
@@ -219,7 +240,7 @@ public class Fornecedor implements Comparable<Fornecedor>{
      * @param novoPreco - Double com o preço do produto.
      */
     public void editaProduto(String nome, String descricao, double novoPreco) {
-        ProdutoID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
+        ID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
 
         if (nome == null || nome.equals("")) {
             throw new IllegalArgumentException("Erro na edicao de produto: nome nao pode ser vazio ou nulo.");

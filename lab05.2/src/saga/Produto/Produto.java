@@ -1,6 +1,6 @@
 package saga.Produto;
 
-import saga.Produto.CalculoDePreco.TipoDeCalculo;
+import saga.Calculadores.TipoDeCalculo;
 
 /**
  * Representação de um Produto.

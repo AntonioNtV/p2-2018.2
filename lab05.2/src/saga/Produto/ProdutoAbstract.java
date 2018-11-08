@@ -76,11 +76,15 @@ public abstract class ProdutoAbstract implements Comparable<ProdutoAbstract>{
         return this.nome + " - " + this.descricao + " - R$" + String.format("%.2f",this.getPreco());
     }
 
+    private String nomeEDescricao() {
+        return this.nome + " - " + this.descricao;
+    }
+
     /**
      * compareTo baseado no toString do produto.
      */
     @Override
     public int compareTo(ProdutoAbstract produto) {
-        return this.toString().toLowerCase().compareTo(produto.toString().toLowerCase());
+        return this.nome.toLowerCase().compareTo(produto.nome.toLowerCase());
     }
 }

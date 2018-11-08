@@ -1,6 +1,7 @@
 package saga.fornecedor;
 
-import saga.Produto.ProdutoID;
+import saga.identifiers.ID;
+import saga.identifiers.ProdutoID;
 
 import java.util.*;
 
@@ -127,7 +128,7 @@ public class FornecedorController {
      * @param preco double com o preço do produto.
      */
     public void adicionaProduto(String fornecedor, String nome, String descricao, double preco) {
-        ProdutoID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
+        ID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
 
 
         if (fornecedor == null || fornecedor.equals("")) {
@@ -148,7 +149,7 @@ public class FornecedorController {
     }
 
     public void adicionaCombo(String fornecedor, String nome, String descricao, double fator, String produtos) {
-        ProdutoID comboId = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
+        ID comboId = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
         String[] produtosEDescricao = this.listaProdutosString(produtos);
 
         if (fornecedor == null || fornecedor.equals("")) {
@@ -157,18 +158,21 @@ public class FornecedorController {
             throw new IllegalArgumentException("Erro no cadastro de combo: nome nao pode ser vazio ou nulo.");
         } else if (descricao == null || descricao.equals("")) {
             throw new IllegalArgumentException("Erro no cadastro de combo: descricao nao pode ser vazia ou nula.");
-        } else if (fator < 0 || fator >= 1) {
+        } else if (fator <= 0 || fator >= 1) {
             throw new IllegalArgumentException("Erro no cadastro de combo: fator invalido.");
-        } else if (this.fornecedores.get(fornecedor.toLowerCase()).possuiProduto(comboId)) {
-            throw new IllegalArgumentException("Erro no cadastro de combo: combo ja existe.");
         } else if (!this.fornecedores.containsKey(fornecedor.toLowerCase())) {
             throw new IllegalArgumentException("Erro no cadastro de combo: fornecedor nao existe.");
+        } else if (this.fornecedores.get(fornecedor.toLowerCase()).possuiProduto(comboId)) {
+            throw new IllegalArgumentException("Erro no cadastro de combo: combo ja existe.");
         } else if (produtos == null || produtos.equals("")) {
             throw new IllegalArgumentException("Erro no cadastro de combo: combo deve ter produtos.");
         }
 
+
         for (int i = 0; i < produtosEDescricao.length; i += 2) {
-            ProdutoID produto = new ProdutoID(produtosEDescricao[i].toLowerCase().trim(), produtosEDescricao[i + 1].toLowerCase().trim());
+            String nomeProduto = produtosEDescricao[i].toLowerCase().trim();
+            String descricaoProduto = produtosEDescricao[i + 1].toLowerCase().trim();
+            ID produto = new ProdutoID(nomeProduto, descricaoProduto);
 
             if (!this.fornecedores.get(fornecedor.toLowerCase()).possuiProduto(produto)) {
                 throw new IllegalArgumentException("Erro no cadastro de combo: produto nao existe.");
@@ -188,7 +192,7 @@ public class FornecedorController {
      * @return
      */
     public String exibeProduto(String nome, String descricao, String fornecedor) {
-        ProdutoID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
+        ID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
 
         if (nome == null || nome.equals("")) {
             throw new IllegalArgumentException("Erro na exibicao de produto: nome nao pode ser vazio ou nulo.");
@@ -261,7 +265,7 @@ public class FornecedorController {
      * @param novoPreco double com novo preço do prdduto.
      */
     public void editaProduto(String nome, String descricao, String fornecedor, double novoPreco) {
-        ProdutoID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
+        ID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
 
         if (fornecedor == null || fornecedor.equals("")) {
             throw new IllegalArgumentException("Erro na edicao de produto: fornecedor nao pode ser vazio ou nulo.");
@@ -280,6 +284,25 @@ public class FornecedorController {
         this.fornecedores.get(fornecedor.toLowerCase()).editaProduto(nome, descricao, novoPreco);
     }
 
+    public void editaCombo(String nome, String descricao, String fornecedor, double novoFator) {
+        ID comboID = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
+
+        if (nome == null || nome.equals("")) {
+            throw new IllegalArgumentException("Erro na edicao de combo: nome nao pode ser vazio ou nulo.");
+        } else if (descricao == null || descricao.equals("")) {
+            throw new IllegalArgumentException("Erro na edicao de combo: descricao nao pode ser vazia ou nula.");
+        } else if (fornecedor == null || fornecedor.equals("")) {
+            throw new IllegalArgumentException("Erro na edicao de combo: fornecedor nao pode ser vazio ou nulo.");
+        } else if (!this.fornecedores.containsKey(fornecedor.toLowerCase())) {
+            throw new IllegalArgumentException("Erro na edicao de combo: fornecedor nao existe.");
+        } else if (novoFator <= 0 || novoFator >= 1) {
+            throw new IllegalArgumentException("Erro na edicao de combo: fator invalido.");
+        } else if (!this.fornecedores.get(fornecedor.toLowerCase()).possuiProduto(comboID)) {
+            throw new IllegalArgumentException("Erro na edicao de combo: produto nao existe.");
+        }
+        this.fornecedores.get(fornecedor.toLowerCase()).editaCombo(nome, descricao, novoFator);
+    }
+
     /**
      * Criado para Remover algum produto de algum determinado fornecedor
      *
@@ -288,7 +311,7 @@ public class FornecedorController {
      * @param fornecedor String com nome do fornecedor que possui o produto a ser removido.
      */
     public void removeProduto(String nome, String descricao, String fornecedor) {
-        ProdutoID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
+        ID produto = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
 
         if (fornecedor == null || fornecedor.equals("")) {
             throw new IllegalArgumentException("Erro na remocao de produto: fornecedor nao pode ser vazio ou nulo.");

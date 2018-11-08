@@ -1,4 +1,4 @@
-package saga.Produto.CalculoDePreco;
+package saga.Calculadores;
 
 public interface TipoDeCalculo {
     public double getPreco();

@@ -15,7 +15,7 @@ public class Facade {
     }
 
     public static void main(String[] args) {
-        args = new String[] {"saga.facade.Facade", "acceptance_tests/us1.txt", "acceptance_tests/us2.txt", "acceptance_tests/us3.txt"};
+        args = new String[] {"saga.facade.Facade", "acceptance_tests/us1.txt", "acceptance_tests/us2.txt", "acceptance_tests/us3.txt", "acceptance_tests/us4.txt"};
         EasyAccept.main(args);
     }
 
@@ -92,11 +92,15 @@ public class Facade {
     // US4
 
     public void adicionaCombo(String fornecedor, String nome, String descricao, double fator, String produtos) {
-        //TODO
+        this.fornecedores.adicionaCombo(fornecedor, nome, descricao, fator, produtos);
     }
 
     public void editaCombo(String nome, String descricao, String fornecedor, double novoFator) {
-        //TODO
+        this.fornecedores.editaCombo(nome, descricao, fornecedor, novoFator);
     }
+
+    //US5
+
+
 
 }

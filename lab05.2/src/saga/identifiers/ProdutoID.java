@@ -1,4 +1,4 @@
-package saga.Produto;
+package saga.identifiers;
 
 import java.util.Objects;
 
@@ -6,7 +6,7 @@ import java.util.Objects;
  * Criado para ser o identificador de um produto.
  * @author Antonio Bertino de Vasconcelos Cabral Neto.
  */
-public class ProdutoID {
+public class ProdutoID implements ID {
     /**
      * Nome do produto
      */
