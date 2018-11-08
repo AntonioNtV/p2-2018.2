@@ -1,6 +1,6 @@
-package saga.Calculadores;
+package saga.calculadores;
 
-import saga.Produto.ProdutoAbstract;
+import saga.produto.ProdutoAbstract;
 
 import java.util.Set;
 

@@ -1,9 +1,9 @@
-package saga.Produto;
+package saga.produto;
 
 import java.util.Objects;
 
 /**
- * Representação de um Produto.
+ * Representação de um produto.
  * Um produto possui nome, descrição e preço. É identificado unicamente pelo nome e descrição.
  *
  * @author Antonio Bertino de Vasconcelos Cabral Neto - UFCG - 2018
@@ -35,7 +35,7 @@ public abstract class ProdutoAbstract implements Comparable<ProdutoAbstract>{
 
 
     /**
-     * Criado para retornar o Preço do Produto
+     * Criado para retornar o Preço do produto
      * @return double com valor do produto.
      */
     public abstract double getPreco();

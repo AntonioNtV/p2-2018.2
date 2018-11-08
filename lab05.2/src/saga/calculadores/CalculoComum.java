@@ -1,4 +1,4 @@
-package saga.Calculadores;
+package saga.calculadores;
 
 public class CalculoComum implements TipoDeCalculo {
     private double preco;

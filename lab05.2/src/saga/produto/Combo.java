@@ -1,6 +1,6 @@
-package saga.Produto;
+package saga.produto;
 
-import saga.Calculadores.TipoDeCalculo;
+import saga.calculadores.TipoDeCalculo;
 
 public class Combo extends ProdutoAbstract {
     private TipoDeCalculo tipoDeCalculo;

@@ -1,9 +1,9 @@
-package saga.Produto;
+package saga.produto;
 
-import saga.Calculadores.TipoDeCalculo;
+import saga.calculadores.TipoDeCalculo;
 
 /**
- * Representação de um Produto.
+ * Representação de um produto.
  * Um produto possui nome, descrição e preço. É identificado unicamente pelo nome e descrição.
  *
  * @author Antonio Bertino de Vasconcelos Cabral Neto - UFCG - 2018

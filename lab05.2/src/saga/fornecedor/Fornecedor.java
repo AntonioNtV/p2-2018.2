@@ -1,11 +1,11 @@
 package saga.fornecedor;
 
-import saga.Calculadores.CalculoCombo;
-import saga.Calculadores.CalculoComum;
-import saga.Calculadores.TipoDeCalculo;
-import saga.Produto.Combo;
-import saga.Produto.Produto;
-import saga.Produto.ProdutoAbstract;
+import saga.calculadores.CalculoCombo;
+import saga.calculadores.CalculoComum;
+import saga.calculadores.TipoDeCalculo;
+import saga.produto.Combo;
+import saga.produto.Produto;
+import saga.produto.ProdutoAbstract;
 import saga.identifiers.ID;
 import saga.identifiers.ProdutoID;
 
@@ -110,9 +110,9 @@ public class Fornecedor implements Comparable<Fornecedor>{
     /**
      * Criado para adicionar um produto no Conjunto de produto do Fornecedor.
      *
-     * @param nome Nome do Produto
-     * @param descricao Descrição do Produto
-     * @param preco Preço do Produto
+     * @param nome Nome do produto
+     * @param descricao Descrição do produto
+     * @param preco Preço do produto
      */
     public void adicionaProduto(String nome, String descricao, double preco) {
         ID produtoID = new ProdutoID(nome.toLowerCase(), descricao.toLowerCase());
