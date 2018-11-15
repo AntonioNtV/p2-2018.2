@@ -22,7 +22,7 @@ public class CaixaPersonalizada implements Comparable<CaixaPersonalizada>{
     }
 
     public double getPreco() {
-       return this.formato.getPreco();
+        return this.formato.getArea() * 0.1;
     }
 
     public String getFormato() {
@@ -60,7 +60,7 @@ public class CaixaPersonalizada implements Comparable<CaixaPersonalizada>{
 
     @Override
     public String toString() {
-        return "Caixa com " + this.personalizacao + " custa R$ " + this.getPreco() + ". Formato" + this.getFormato();
+        return "Caixa com " + this.personalizacao + " custa R$ " + String.format("%.2f",this.getPreco())+ ". Formato " + this.getFormato();
     }
 
     @Override

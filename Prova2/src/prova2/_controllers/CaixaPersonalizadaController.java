@@ -11,7 +11,7 @@ import java.util.*;
 public class CaixaPersonalizadaController {
     private Map<String, CaixaPersonalizada> caixasCadastradas;
 
-    public void setCaixasCadastradas() {
+    public CaixaPersonalizadaController() {
         this.caixasCadastradas = new HashMap<>();
     }
 

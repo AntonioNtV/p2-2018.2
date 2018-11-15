@@ -16,11 +16,6 @@ public class Retangular implements Formato {
     }
 
     @Override
-    public double getPreco() {
-        return this.calculaArea() * 0.1;
-    }
-
-    @Override
     public String getFormato() {
         return this.formato;
     }
@@ -30,7 +25,8 @@ public class Retangular implements Formato {
         return this.lado1 + " - " + this.lado2;
     }
 
-    private double calculaArea() {
+    @Override
+    public double getArea() {
         return this.lado1 * this.lado2;
     }
 }
