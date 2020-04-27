@@ -1,2 +1,1 @@
-# p2-2018.2
-Códigos feito na cadeira de programação 2, 2018.2 com o professor Matheus Gaudêncio
+Repositório com  projetos inicias para a cadeiras de Laboratório de Programção 2
